@@ -1,19 +1,98 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
-
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="La boutique de vetements pour femmes, hommes & bébé !">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <title>{% block title %}La Garde Robe • La boutique 100% made in France{% endblock %}</title>
+</head>
     <body>
-        {% block body %}{% endblock %}
+
+        <header class="header nav__menu-page" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">La Garde Robe</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li>
+                            <a href="#" class="nav__link">Les produits</a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav__link">Nous contacter</a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav__link">Inscription</a>
+                            |
+                            <a href="#" class="nav__link">Connexion</a>
+                            <!--
+                            <a href="#" class="nav__link">Mon compte</a>
+                            |
+                            <a href="#" class="nav__link">Déconnexion</a>
+                            -->
+                        </li>
+                    </ul>
+
+                    <i class="uil uil-times nav__close" id="nav-close"></i>
+                </div>
+
+                <a href="#" class="nav__cart"><i class="uil uil-shopping-bag"></i></a>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="uil uil-bars"></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="home" id="home">
+
+            {% if block('hero') is defined %}
+
+                <section class="hero">
+
+                    <img src="{{ asset('assets/img/home1.jpg') }}" alt="" class="hero__img">
+
+                </section>
+
+            {% endif %}
+
+            {% block content %}
+            {% endblock %}
+
+            <footer class="footer section" id="footer">
+
+                <div class="footer__container container grid">
+
+                    <div class="footer__content">
+                        <div class="footer__data">
+                            <h3>EN SAVOIR PLUS</h3>
+                            <a href="#">Notre Marque</a>
+                            <a href="#">Nos Boutiques</a>
+                        </div>
+
+                        <div class="footer__data">
+                            <h3>INFORMATION</h3>
+                            <a href="#">Politique de Confidentialité</a>
+                            <a href="#">Conditions d'Utilisation</a>
+                        </div>
+
+                        <div class="footer__data">
+                            <h3>MON COMPTE</h3>
+                            <a href="#">Mon Compte</a>
+                            <a href="#">Mes Commandes</a>
+                        </div>
+
+                    </div>
+
+                    <span class="footer__copyright">eCommerce © | site réalisé par <b><a href="#" >nous</a></b> dans le but d'apprentissage du framework Symfony ;)</span>
+
+                </div>
+
+            </footer>
+
+        </main>
+
+        <script src="{{ asset('assets/js/main.js') }}"></script>
+
     </body>
 </html>

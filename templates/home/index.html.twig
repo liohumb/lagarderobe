@@ -1,20 +1,229 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block content %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <section class="home__section">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        <img src="{{ asset('assets/img/home1.jpg') }}" alt="home__pic" class="home__img">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/lio/Documents/cours/AFPA/Symfony/lagarderobe/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/lio/Documents/cours/AFPA/Symfony/lagarderobe/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+        <div class="home__container container grid">
+
+            <div class="home__data">
+                <span class="home__data-subtitle">La boutique 100% made in france</span>
+                <h1 class="home__data-title">La Garde Robe</h1>
+                <div class="home__button">
+                    <a href="#" class=""></a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="category section">
+
+        <div class="category__container container grid">
+
+            <div class="category__card">
+                <div class="category__card-dotted">
+                    <div class="category__content">
+                        <h2>Côté <br />Femmes</h2>
+                        <h4 class="category__content-subtitle">Le meilleur de la mode</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category__card">
+                <div class="category__card-dotted">
+
+                    <div class="category__content">
+                        <h2>Côté <br />Homme</h2>
+                        <h4 class="category__content-subtitle">Le top de la tendance</h4>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="category__card">
+                <div class="category__card-dotted">
+
+                    <div class="category__content">
+                        <h2>Côté <br />Bébé</h2>
+                        <h4 class="category__content-subtitle">Ses premiers vetements</h4>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="feature section">
+
+        <div class="feature__title">
+            <h1>Nos Produits du Moment</h1>
+        </div>
+
+        <div class="feature__container container grid">
+
+            <div class="feature__product">
+
+                <div class="feature__product-header">
+                    <img src="{{ asset('assets/img/product1.jpg') }}" alt="">
+                    <ul class="feature__icons">
+                        <span><i class="uil uil-heart"></i></span>
+                        <span><i class="uil uil-shopping-bag"></i></span>
+                        <span><i class="uil uil-search"></i></span>
+                    </ul>
+                </div>
+
+                <div class="feature__product-footer">
+                    <a href="#"><h2>La rock star</h2></a>
+                    <h4 class="feature__price">12€99</h4>
+                </div>
+            </div>
+
+            <div class="feature__product">
+                <div class="feature__product-header">
+                    <img src="{{ asset('assets/img/product2.jpg') }}" alt="">
+                    <ul class="feature__icons">
+                        <span><i class="uil uil-heart"></i></span>
+                        <span><i class="uil uil-shopping-bag"></i></span>
+                        <span><i class="uil uil-search"></i></span>
+                    </ul>
+                </div>
+                <div class="feature__product-footer">
+                    <a href="#"><h2>La robe tendance</h2></a>
+                    <h4 class="feature__price">24€50</h4>
+                </div>
+            </div>
+
+            <div class="feature__product">
+                <div class="feature__product-header">
+                    <img src="{{ asset('assets/img/product4.jpg') }}" alt="">
+
+                    <ul class="feature__icons">
+                        <span><i class="uil uil-heart"></i></span>
+                        <span><i class="uil uil-shopping-bag"></i></span>
+                        <span><i class="uil uil-search"></i></span>
+                    </ul>
+                </div>
+                <div class="feature__product-footer">
+                    <a href="#"><h2>Le premier body</h2></a>
+                    <h4 class="feature__price">9€90</h4>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="about section">
+
+        <div class="about__container grid">
+
+            <div class="about__left">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2527.44200851907!2d3.156409915994799!3d50.69318167772557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c328e3dd23fd3d%3A0x33219387c1bbd279!2s20%20Rue%20du%20Luxembourg%2C%2059100%20Roubaix!5e0!3m2!1sfr!2sfr!4v1631776470634!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <div class="about__right">
+                <div class="about__content">
+                    <h2>A Propos de nous</h2>
+                    <div class="about__data-content">
+                        <div class="about__data-table">
+                            <div class="about__data-days">
+                                <div class="about__data-day">Lundi</div>
+                                <div class="about__data-day">Mardi</div>
+                                <div class="about__data-day">Mercredi</div>
+                                <div class="about__data-day">Jeudi</div>
+                                <div class="about__data-day">Vendredi</div>
+                                <div class="about__data-day">Samedi</div>
+                                <div class="about__data-day">Dimanche</div>
+                            </div>
+                            <div class="about__data-hours">
+                                <div class="about__data-dayHour">Fermé</div>
+                                <div class="about__data-dayHour">14H | 19h</div>
+                                <div class="about__data-dayHour">10h | 19h</div>
+                                <div class="about__data-dayHour">10h | 19h</div>
+                                <div class="about__data-dayHour">10h | 20h</div>
+                                <div class="about__data-dayHour">10h | 20h</div>
+                                <div class="about__data-dayHour">Fermé</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="about__button" href="#">Contactez nous <i class="uil uil-phone"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="comment section">
+
+        <div class="comment__container container grid">
+
+            <div class="comment__card">
+                <span>&ldquo;</span>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis,
+                    fugiat labore. Veritatis et omnis consequatur.
+                </p>
+                <div class="comment__rating">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bx-star"></i>
+                </div>
+                <div class="comment__img">
+                    <img src="{{ asset('assets/img/comment1.jpg') }}" alt="" />
+                </div>
+                <h4>Steve Jobs</h4>
+            </div>
+
+            <div class="comment__card">
+                <span>&ldquo;</span>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis,
+                    fugiat labore. Veritatis et omnis consequatur.
+                </p>
+                <div class="comment__rating">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bx-star"></i>
+                </div>
+                <div class="comment__img">
+                    <img src="{{ asset('assets/img/comment2.jpeg') }}" alt="" />
+                </div>
+                <h4>Beyonce</h4>
+            </div>
+
+            <div class="comment__card">
+                <span>&ldquo;</span>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis,
+                    fugiat labore. Veritatis et omnis consequatur.
+                </p>
+                <div class="comment__rating">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bx-star"></i>
+                </div>
+                <div class="comment__img">
+                    <img src="{{ asset('assets/img/comment3.jpg') }}" alt="" />
+                </div>
+                <h4>Chucky</h4>
+            </div>
+
+        </div>
+
+    </section>
+
 {% endblock %}
