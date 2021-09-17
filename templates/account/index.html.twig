@@ -30,32 +30,36 @@
 
         <div class="account__option grid">
 
-            <div class="account__option-card" style="background-image: url('{{ asset('assets/img/account1.jpg') }}')">
-                <div class="account__option-cardDotted">
-                    <div class="option__content">
-                        <h2>Modifier <i class="uil uil-key-skeleton-alt"></i></h2>
-                        <h4>mon mot de passe</h4>
+            <a href="{{ path('account_password') }}">
+                <div class="account__option-card" style="background-image: url('{{ asset('assets/img/account1.jpg') }}')">
+                    <div class="account__option-cardDotted">
+                        <div class="option__content">
+                            <h2>Modifier <i class="uil uil-key-skeleton-alt"></i></h2>
+                            <h4>mon mot de passe</h4>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="account__option-card" style="background-image: url('{{ asset('assets/img/account2.jpg') }}')">
-                <div class="account__option-cardDotted">
-                    <div class="option__content">
-                        <h2>Gérer <i class="uil uil-mailbox"></i></h2>
-                        <h4>mes adresses</h4>
+            </a>
+            <a href="">
+                <div class="account__option-card" style="background-image: url('{{ asset('assets/img/account2.jpg') }}')">
+                    <div class="account__option-cardDotted">
+                        <div class="option__content">
+                            <h2>Gérer <i class="uil uil-mailbox"></i></h2>
+                            <h4>mes adresses</h4>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="account__option-card" style="background-image: url('{{ asset('assets/img/account3.jpg') }}')">
-                <div class="account__option-cardDotted">
-                    <div class="option__content">
-                        <h2>Voir <i class="uil uil-shopping-bag"></i></h2>
-                        <h4>mes commandes</h4>
+            </a>
+            <a href="">
+                <div class="account__option-card" style="background-image: url('{{ asset('assets/img/account3.jpg') }}')">
+                    <div class="account__option-cardDotted">
+                        <div class="option__content">
+                            <h2>Voir <i class="uil uil-shopping-bag"></i></h2>
+                            <h4>mes commandes</h4>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
 
         </div>
 
