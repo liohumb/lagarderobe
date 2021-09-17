@@ -776,17 +776,18 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 
 
 .comment__container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    gap: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 6rem;
 }
 
 .comment__card {
     position: relative;
-    padding: 5rem;
-    background-color: #fff;
+    padding: 3rem;
+    background-color: var(--white-color);
     box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
-    transition: all 300ms ease-in-out;
+    transition: all .5s ease-in-out;
     text-align: center;
     border-radius: 0.5rem;
 }
@@ -798,21 +799,17 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 
 .comment__card span {
     position: absolute;
-    top: 2%;
+    top: 0;
     left: 50%;
     font-size: 12rem;
     font-family: sans-serif;
-    color: #ff7c9c;
+    color: 	hsl(345, 100%, 74%);
     line-height: 1;
     transform: translate(-50%, 0);
 }
 
 .comment__card p {
-    margin: 2rem 0 1rem 0;
-}
-
-.comment__card .comment__rating {
-    margin-bottom: 1rem;
+    margin: 2.5rem 0 2rem 0;
 }
 
 .comment__card .comment__img {
@@ -830,6 +827,100 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 
 .comment__card h4 {
     margin-top: 1rem;
+}
+
+@media screen and (min-width: 1200px) {
+    .comment__container {
+        display: flex;
+        flex-direction: row;
+        padding: 0 4rem;
+    }
+    .comment__card {
+        position: relative;
+        padding: 2rem;
+        background-color: var(--white-color);
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+        transition: all .5s ease-in-out;
+        text-align: center;
+        border-radius: 0.5rem;
+        height: 100%;
+        width: 64%;
+    }
+    .comment__card:hover {
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+        transform: translateY(-1rem);
+    }
+    .comment__card span {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        font-size: 8rem;
+        font-family: sans-serif;
+        color: 	hsl(345, 100%, 74%);
+        line-height: 1;
+        transform: translate(-50%, 0);
+    }
+    .comment__card p {
+        margin: 2.5rem 0 2rem 0;
+        font-size: .8rem;
+    }
+    .comment__card .comment__img {
+        border-radius: 50%;
+        width: 5rem;
+        height: 5rem;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+    .comment__card .comment__img img {
+        height: 100%;
+        object-fit: cover;
+    }
+    .comment__card h4 {
+        margin-top: .5rem;
+    }
+}
+
+@media screen and (min-width: 1450px) {
+    .comment__card {
+        position: relative;
+        padding: 3rem;
+        background-color: var(--white-color);
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+        transition: all .5s ease-in-out;
+        text-align: center;
+        border-radius: 0.5rem;
+    }
+    .comment__card:hover {
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+        transform: translateY(-1rem);
+    }
+    .comment__card span {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        font-size: 12rem;
+        font-family: sans-serif;
+        color: 	hsl(345, 100%, 74%);
+        line-height: 1;
+        transform: translate(-50%, 0);
+    }
+    .comment__card p {
+        margin: 2.5rem 0 2rem 0;
+    }
+    .comment__card .comment__img {
+        border-radius: 50%;
+        width: 8rem;
+        height: 8rem;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+    .comment__card .comment__img img {
+        height: 100%;
+        object-fit: cover;
+    }
+    .comment__card h4 {
+        margin-top: 1rem;
+    }
 }
 
 
@@ -909,7 +1000,7 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 
 
 .account__container {
-    max-width: 50rem;
+    max-width: 60rem;
     margin-left: var(--mb-1);
     margin-right: var(--mb-1);
 }
@@ -948,10 +1039,10 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 .account__option-card {
     position: relative;
     color: var(--white-color);
-    width: 20rem;
-    height: 20rem;
+    width: 10rem;
+    height: 10rem;
     border-radius: 1rem;
-    padding: 1.2rem;
+    padding: 1.6rem;
     overflow: hidden;
     z-index: 1;
 }
@@ -965,8 +1056,7 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 
 .account__option-card .option__content {
     position: absolute;
-    top: 78%;
-    left: 5%;
+    top: 66%;
     transform: translate(0, -50%);
 }
 
@@ -977,14 +1067,14 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 
 .account__option-card .option__content h2 {
     line-height: 1.2;
-    font-size: 3rem;
+    font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 1rem;
     color: var(--white-color);
 }
 
 .account__option-card .option__content h4 {
-    font-size: 1.5rem;
+    font-size: .6rem;
     text-transform: capitalize;
 }
 
@@ -1001,16 +1091,53 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
     color: var(--white-color);
 }
 
+@media only screen and (max-width: 768px) {
+    .account__container {
+        max-width: 44rem;
+    }
+    .account__option {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 6rem 0 4rem;
+    }
+}
+
 @media screen and (min-width: 1024px) {
     .account__container {
         margin-left: auto;
         margin-right: auto;
     }
+    .account__option-card {
+        position: relative;
+        color: var(--white-color);
+        width: 20rem;
+        height: 20rem;
+        border-radius: 1rem;
+        padding: 1.6rem;
+        overflow: hidden;
+        z-index: 1;
+    }
+    .account__option-card .option__content {
+        position: absolute;
+        top: 80%;
+        transform: translate(0, -50%);
+    }
+    .account__option-card .option__content h2 {
+        line-height: 1.2;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+    .account__option-card .option__content h4 {
+        font-size: 1.5rem;
+        text-transform: capitalize;
+    }
 }
 
 @media screen and (min-width: 1200px) {
     .account__container {
-        max-width: 50rem;
+        max-width: 60rem;
     }
 }
 
@@ -1021,7 +1148,7 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 .footer {
     background-color: var(--text-color-light);
     padding: 6rem 1rem;
-    line-height: 3rem;
+    line-height: 2rem;
     margin-top: 9rem;
 }
 
@@ -1038,7 +1165,7 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 .footer__data a:visited {
     display: block;
     color: #f1f1f1;
-    font-size: 1.4rem;
+    font-size: .7rem;
     transition: 0.6s;
 }
 
@@ -1052,7 +1179,7 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 }
 
 .footer__data h3 {
-    font-size: 1.8rem;
+    font-size: 1rem;
     font-weight: 400;
     margin-bottom: 1rem;
 }
@@ -1060,6 +1187,7 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 .footer__copyright {
     color: var(--white-color);
     text-align: center;
+    font-size: .7rem;
 }
 
 .footer__copyright a {
@@ -1077,6 +1205,69 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
     .footer__content {
         grid-template-columns: 1fr;
         row-gap: 2rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .footer {
+        padding: 6rem 1rem;
+        line-height: 3rem;
+        margin-top: 7rem;
+    }
+    .footer__data span {
+        margin-right: 1rem;
+    }
+    .footer__content {
+        display: flex;
+        justify-content: space-around;
+    }
+    .footer__data a:link,
+    .footer__data a:visited {
+        display: block;
+        color: #f1f1f1;
+        font-size: 1rem;
+        transition: 0.6s;
+    }
+    .footer__data div {
+        color: #f1f1f1;
+        font-size: 1.4rem;
+    }
+    .footer__data h3 {
+        font-size: 1.4rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .footer {
+        background-color: var(--text-color-light);
+        padding: 6rem 1rem;
+        line-height: 5rem;
+        margin-top: 9rem;
+    }
+    .footer__data span {
+        margin-right: 1rem;
+    }
+    .footer__content {
+        display: flex;
+        justify-content: space-around;
+    }
+    .footer__data a:link,
+    .footer__data a:visited {
+        display: block;
+        color: #f1f1f1;
+        font-size: 1.4rem;
+        transition: 0.6s;
+    }
+    .footer__data div {
+        color: #f1f1f1;
+        font-size: 1.4rem;
+    }
+    .footer__data h3 {
+        font-size: 1.8rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
     }
 }
 
@@ -1236,7 +1427,7 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 
 @media screen and (min-width: 1200px) {
     .container {
-        max-width: 100rem;
+        max-width: 90rem;
     }
 }
 
