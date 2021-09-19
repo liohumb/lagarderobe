@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }} • La Garde Robe{% endblock %}
+
+{% block hero %}{% endblock %}
+
+{% block content %}
+
+    <section class="product__detail section">
+        <div class="product__detail-container container grid">
+            <div class="product__detail-left">
+                <div class="product__detail-img">
+                    <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}">
+                </div>
+            </div>
+            <div class="product__detail-right">
+                <h1 class="product__detail-title">{{ product.name }}</h1>
+                <h3 class="product__detail-subtitle"><i>{{ product.subtitle }}</i></h3>
+                <div class="product__detail-price">{{ (product.price / 100) | number_format(2, ' € ', '.') }}</div>
+                <form class="product__detail-size">
+                    <div>
+                        <label>
+                            <select class="product__detail-sizeSelect">
+                                <option value="Select Size" selected disabled>Taille</option>
+                                <option value="1">S</option>
+                                <option value="2">M</option>
+                                <option value="3">L</option>
+                                <option value="4">XL</option>
+                            </select>
+                        </label>
+                    </div>
+                </form>
+
+                <div class="product__detail-quantity">
+                    <a href="" class="product__detail-quantityMinus"><i class="uil uil-minus"></i></a>
+                    <span class="product__detail-quantityNumber">1</span>
+                    <a href="" class="product__detail-quantityPlus"><i class="uil uil-plus"></i></a>
+                </div>
+                <div class="product__detail-button">
+                    <a href="" class="product__detail-buttonAdd">Ajouter au panier</a>
+                </div>
+                <h3 class="product__detail-description">Description de {{ product.name }}</h3>
+                <p class="product__detail-descriptionContent">{{ product.description }}</p>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

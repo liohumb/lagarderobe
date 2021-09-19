@@ -1,20 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProductController!{% endblock %}
+{% block title %}Les Produits • La Garde Robe{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block hero %}{% endblock %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+{% block content %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/lio/Documents/cours/AFPA/Symfony/lagarderobe/src/Controller/ProductController.php'|file_link(0) }}">src/Controller/ProductController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/lio/Documents/cours/AFPA/Symfony/lagarderobe/templates/product/index.html.twig'|file_link(0) }}">templates/product/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <section class="products section" id="products">
+        <div class="products__container container grid">
+            <h1 class="products__title">Les Produits</h1>
+        </div>
+
+        <div class="product__container container grid">
+            {% for product in products %}
+
+                <div class="product">
+                    <div class="product__card">
+                        <div class="product__img">
+                            <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}">
+                        </div>
+                        <div class="product__detail">
+                            <div class="product__detail-center">
+                                <h1>{{ product.name }}</h1>
+                                <h4 class="price">{{ (product.price / 100) | number_format(2, ' € ', '.') }}</h4>
+                                <ul>
+                                    <li><a href="{{ path('product', { 'slug' : product.slug }) }}"><i class="uil uil-search"></i></a></li>
+                                    <li><a href="#"><i class="uil uil-heart-alt"></i></a></li>
+                                    <li><a href="#"><i class="uil uil-share"></i></a></li>
+                                    <li><a href="#"><i class="uil uil-shopping-cart"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    </section>
+
 {% endblock %}
