@@ -37,7 +37,7 @@
                     <a href="" class="product__detail-quantityPlus"><i class="uil uil-plus"></i></a>
                 </div>
                 <div class="product__detail-button">
-                    <a href="" class="product__detail-buttonAdd">Ajouter au panier</a>
+                    <a href="{{ path('add_to_cart', { 'id' : product.id }) }}" class="product__detail-buttonAdd">Ajouter au panier</a>
                 </div>
                 <h3 class="product__detail-description">Description de {{ product.name }}</h3>
                 <p class="product__detail-descriptionContent">{{ product.description }}</p>
