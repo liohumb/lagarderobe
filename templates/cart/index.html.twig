@@ -5,77 +5,100 @@
 {% block hero %}{% endblock %}
 
 {% block content %}
-    <section class="cart section">
 
-        <div class="cart__container container">
+    {% if cart|length > 0 %}
 
-            {% set total = null %}
+        <section class="cart section">
 
-            {% for product in cart %}
+            <div class="cart__container container">
 
-            <div class="cart__content">
-                <div class="cart__content-left">
-                    <div class="cart__img">
-                        <img src="/uploads/{{ product.product.illustration }}" alt="{{ product.product.name }}" class="cart__img-productIllustration">
-                    </div>
-                    <div class="cart__title">
-                        <h4 class="cart__title-name">{{ product.product.name }}</h4>
-                    </div>
-                </div>
-                <div class="cart__content-right">
-                    <div class="cart__content-price">
-                        <div class="cart__price">
-                            <h5 class="cart__price-number">{{ ((product.product.price * product.quantity) / 100) | number_format(2, ' € ', '.') }}</h5>
+                {% set total = null %}
+
+                {% for product in cart %}
+
+                <div class="cart__content">
+                    <div class="cart__content-left">
+                        <div class="cart__img">
+                            <img src="/uploads/{{ product.product.illustration }}" alt="{{ product.product.name }}" class="cart__img-productIllustration">
                         </div>
-                        <div class="cart__quantity">
-                            <a href="" class="cart__quantity-minus"><i class="uil uil-minus"></i></a>
-                            <span class="cart__quantity-number">{{ product.quantity }}</span>
-                            <a href="" class="cart__quantity-plus"><i class="uil uil-plus"></i></a>
+                        <div class="cart__title">
+                            <h4 class="cart__title-name">{{ product.product.name }}</h4>
                         </div>
                     </div>
-                    <div class="cart__trash">
-                        <a href="" class="cart__trash-button"><i class="uil uil-trash-alt"></i></a>
+                    <div class="cart__content-right">
+                        <div class="cart__content-price">
+                            <div class="cart__price">
+                                <h5 class="cart__price-number">{{ ((product.product.price * product.quantity) / 100) | number_format(2, ' € ', '.') }}</h5>
+                            </div>
+                            <div class="cart__quantity">
+                                <a href="{{ path('decrease_to_cart', { 'id' : product.product.id }) }}" class="cart__quantity-minus"><i class="uil uil-minus"></i></a>
+                                <span class="cart__quantity-number">{{ product.quantity }}</span>
+                                <a href="{{ path('add_to_cart', { 'id' : product.product.id}) }}" class="cart__quantity-plus"><i class="uil uil-plus"></i></a>
+                            </div>
+                        </div>
+                        <div class="cart__trash">
+                            <a href="{{ path('delete_to_cart', { 'id' : product.product.id }) }}" class="cart__trash-button"><i class="uil uil-trash-alt"></i></a>
+                        </div>
                     </div>
+
+                    {% set total = total + (product.product.price * product.quantity) %}
+
                 </div>
 
-                {% set total = total + (product.product.price * product.quantity) %}
+                {% endfor %}
 
             </div>
 
-            {% endfor %}
-
-        </div>
-
-        <div class="cart__container-recap container grid">
-            <div class="cart__recap">
-                <div class="cart__recap-title">
-                    <h3 class="cart__recap-titleName">Récapitulatif</h3>
-                </div>
-                <div class="cart__recap-content">
-                    <div class="cart__recap-contentLeft">
-                        <h4><i>Nombre de produit(s) :</i></h4>
-                        <h4><i>Prix Hors Taxe :</i></h4>
-                        <h4><i>Prix du panier :</i></h4>
-                        <h4><i>Livraison :</i></h4>
-                        <h4><i>Prix Total TTC :</i></h4>
+            <div class="cart__container-recap container grid">
+                <div class="cart__recap">
+                    <div class="cart__recap-title">
+                        <h3 class="cart__recap-titleName">Récapitulatif</h3>
                     </div>
-                    <div class="cart__recap-contentRight">
-                        <span class="cart__recap-cartLength">{{ cart|length }}</span>
-                        <span class="cart__recap-priceHT">###</span>
-                        <span class="cart__recap-price">{{ (total / 100) | number_format(2, ' € ', '.') }}</span>
-                        <span class="cart__recap-priceDelivery">###</span>
-                        <span class="cart__recap-priceTotal">###</span>
+                    <div class="cart__recap-content">
+                        <div class="cart__recap-contentLeft">
+                            <h4><i>Nombre de produit(s) :</i></h4>
+                            <h4><i>Prix Hors Taxe :</i></h4>
+                            <h4><i>Prix du panier :</i></h4>
+                            <h4><i>Livraison :</i></h4>
+                            <h4><i>Prix Total TTC :</i></h4>
+                        </div>
+                        <div class="cart__recap-contentRight">
+                            <span class="cart__recap-cartLength">{{ cart|length }}</span>
+                            <span class="cart__recap-priceHT">###</span>
+                            <span class="cart__recap-price">{{ (total / 100) | number_format(2, ' € ', '.') }}</span>
+                            <span class="cart__recap-priceDelivery">###</span>
+                            <span class="cart__recap-priceTotal">###</span>
+                        </div>
                     </div>
                 </div>
+
+                <div class="cart__button">
+                    <a href="" class="cart__button-click cart__button-validation">Valider</a>
+                    <a href="" class="cart__button-click cart__button-delete">Supprimer</a>
+                    <a href="{{ path('products') }}" class="cart__button-click cart__button-back">Retour</a>
+                </div>
+
             </div>
 
-            <div class="cart__button">
-                <a href="" class="cart__button-click cart__button-validation">Valider</a>
-                <a href="" class="cart__button-click cart__button-delete">Supprimer</a>
-                <a href="" class="cart__button-click cart__button-back">Retour</a>
+        </section>
+
+    {% else %}
+
+        <section class="cart section">
+
+            <div class="cart__container container grid">
+
+                <div class="cart__content">
+                    <h1 class="cart__content-title">Votre panier est vide</h1>
+                </div>
+                <div class="cart__button">
+                    <a href="{{ path('products') }}" class="cart__button-click cart__button-back">Retour</a>
+                </div>
+
             </div>
 
-        </div>
+        </section>
 
-    </section>
+    {% endif %}
+
 {% endblock %}

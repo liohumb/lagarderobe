@@ -1741,7 +1741,6 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 }
 
 .cart__img {
-    text-align: center;
     background-color: var(--white-color);
     height:20rem;
     padding: 1rem;
@@ -1869,16 +1868,31 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
     color: var(--white-color);
 }
 
+.cart__content-title {
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+.cart__content-title:hover {
+    color: var(--first-color);
+}
+
 @media screen and (min-width: 768px) {
     .cart__content {
         flex-direction: row;
+        justify-content: flex-start;
     }
     .cart__content-left {
         flex-direction: row;
+        width: 66%;
     }
     .cart__img {
         height:10rem;
-        margin-right: 1.5rem;
+        margin: 0 1.5rem;
+        text-align: start;
+    }
+    .cart__title {
+        width: 60%;
     }
     .cart__content-right {
         margin: 0;
@@ -1916,6 +1930,9 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
     .cart__button-delete {
         margin: 0 5rem 0 5rem;
     }
+    .cart__content-title {
+        font-size: 4rem;
+    }
 }
 
 @media screen and (min-width: 968px) {
@@ -1937,6 +1954,9 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
     .cart__recap-content {
         font-size: 1.5rem;
     }
+    .cart__content-title {
+        font-size: 5rem;
+    }
 }
 
 @media screen and (min-width: 1200px) {
@@ -1949,6 +1969,9 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
     .cart__trash-button {
         margin-left: 10rem;
     }
+    .cart__content-title {
+         font-size: 7rem;
+     }
 }
 
 
