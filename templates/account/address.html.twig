@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes adresses • La Garde Robe{% endblock %}
+
+{% block hero %}{% endblock %}
+
+{% block content %}
+
+    <section class="account section">
+
+        <h1 class="section__title">Mes adresses</h1>
+
+        <div class="account__container grid">
+
+            <div class="account__data">
+                <div class="account__data-info">
+                    <div class="account__data-title">
+                        <h2 class="account__data-titleName">Mais où êtes vous {{ app.user.firstname }} ?</h2>
+                        <h4 class="account__data-titleSubtitle"><i>C'est dans cet espace que vous allez pouvoir gérer toute vos adresses.</i></h4>
+                    </div>
+                </div>
+                <div class="account__data-button">
+                    <div class="account__data-buttonBack">
+                        <a href="{{ path('account') }}" class="account__data-buttonBackClick">Retour</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="account__address">
+
+                <div class="account__address-header">
+                    <div class="account__address-title">
+                        <h3 class="account__address-titleName">À vous de gérer !</h3>
+                    </div>
+                    <div class="account__address-button">
+                        <a href="{{ path('account_address_add') }}" class="account__address-buttonAdd">Ajouter <i class="uil uil-plus"></i></a>
+                    </div>
+                </div>
+
+                <div class="account__address-content">
+
+                    {% if app.user.addresses|length == 0 %}
+
+                        <div class="account__address-empty">
+                            <div class="account__address-emptyMessage">
+                                <h1 class="account__address-message">Pas de bras, pas de chocolat !</h1>
+                                <h1 class="account__address-message">Pas d'adresses, pas de livraison !</h1>
+                                <span class="account__address-subtitle"><i>Pour remédier à ça, <a href="{{ path('account_address_add') }}" class="account__address-buttonAdd">ajouter <i class="uil uil-plus"></i></a> une adresse.</i></span>
+                            </div>
+                        </div>
+
+                    {% else %}
+                        <div class="account__address-contentAddress">
+
+                            {% for address in app.user.addresses %}
+
+                                    <div class="account__address-card">
+                                        <div class="account__address-cardContent">
+                                            <div class="account__address-cardName">{{ address.name }}</div>
+                                            <div class="account__address-cardFullname">
+                                                <div class="account__address-cardFirstname">{{ address.firstname }}</div>
+                                                <div class="account__address-cardLastname">{{ address.lastname }}</div>
+                                            </div>
+                                            <div class="account__address-cardAddress"><i>{{ address.address }}</i></div>
+                                            <div class="account__address-cardAddressPost">
+                                                <div class="account__address-cardPostal"><i>{{ address.postal }}</i></div>
+                                                <div class="account__address-cardCity"><i>{{ address.city }}</i></div>
+                                            </div>
+                                            <div class="account__address-cardPhone">{{ address.phone }}</div>
+                                        </div>
+                                        <div class="account__address-cardButton">
+                                            <a href="{{ path('account_address_edit', { 'id' : address.id }) }}" class="account__address-cardButtonEdit">Modifier</a>
+                                            |
+                                            <a href="{{ path('account_address_delete', { 'id' : address.id }) }}" class="account__address-cardButtonDelete">Supprimer</a>
+                                        </div>
+                                    </div>
+
+                            {% endfor %}
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+{% endblock %}
