@@ -1,20 +1,58 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello OrderController!{% endblock %}
+{% block title %}Valider ma commande • La Garde Robe{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block hero %}{% endblock %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+{% block content %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/lio/Documents/cours/AFPA/Symfony/lagarderobe/src/Controller/OrderController.php'|file_link(0) }}">src/Controller/OrderController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/lio/Documents/cours/AFPA/Symfony/lagarderobe/templates/order/index.html.twig'|file_link(0) }}">templates/order/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <section class="order section">
+
+        <h1 class="section__title">Je passe ma commande</h1>
+        <h3 class="section__subtitle">Choisissez vos préférences avant de passer votre commande sur LaGardeRobe.fr !</h3>
+
+        <div class="order__container container grid">
+            <div class="order__content">
+                <div class="order__left">
+                    <div class="order__delivery">
+                        {% set formhtml %}
+                            {{ form_start(form, {action:path('order_recap')}) }}
+                                {{ form_label(form.addresses, 'Choisissez votre adresses de livrainson') }}
+                                <a href="{{ path('account_address_add') }}" class="order__delivery-add">ou ajouter une nouvelle adresse</a>
+                            {{ form_end(form) }}
+                        {% endset %}
+                        {{ formhtml|replace({'[br]' : '<br/>'})|raw }}
+                    </div>
+                </div>
+                <div class="order__right">
+                    <div class="order__recap">
+                        <h4 class="order__recap-title">Récapitulatif de ma commande</h4>
+                        {% for product in cart %}
+                            <div class="order__recap-product">
+                                <div class="order__recap-productIllustration">
+                                    <img src="/uploads/{{ product.product.illustration }}" alt="{{ product.product.name }}" class="order__recap-productImg">
+                                </div>
+                                <div class="order__recap-content">
+                                    <div class="order__recap-productName">
+                                        <h5 class="order__recap-productTitle">{{ product.product.name }}</h5>
+                                        <h5 class="order__recap-productSubtitle"><i>{{ product.product.subtitle }}</i></h5>
+                                    </div>
+                                    <div class="order__recap-productNumber">
+                                        <div class="order__recap-productQuantity">
+                                            <h5 class="order__recap-productQuantityNumber"><i class="uil uil-multiply"></i> {{ product.quantity }}</h5>
+                                        </div>
+                                        <div class="order__recap-productPrice">
+                                            <h5 class="order__recap-productPriceNumber">{{ ((product.product.price * product.quantity) / 100) | number_format(2, ' € ', '.') }}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
 {% endblock %}

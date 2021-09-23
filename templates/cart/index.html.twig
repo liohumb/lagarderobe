@@ -59,22 +59,18 @@
                             <h4><i>Nombre de produit(s) :</i></h4>
                             <h4><i>Prix Hors Taxe :</i></h4>
                             <h4><i>Prix du panier :</i></h4>
-                            <h4><i>Livraison :</i></h4>
-                            <h4><i>Prix Total TTC :</i></h4>
                         </div>
                         <div class="cart__recap-contentRight">
                             <span class="cart__recap-cartLength">{{ cart|length }}</span>
-                            <span class="cart__recap-priceHT">###</span>
+                            <span class="cart__recap-priceHT">{{ ((total / 100) - (((total / 100) / 120) * 20))| number_format(2, ' € ', '.') }}</span>
                             <span class="cart__recap-price">{{ (total / 100) | number_format(2, ' € ', '.') }}</span>
-                            <span class="cart__recap-priceDelivery">###</span>
-                            <span class="cart__recap-priceTotal">###</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="cart__button">
-                    <a href="" class="cart__button-click cart__button-validation">Valider</a>
-                    <a href="" class="cart__button-click cart__button-delete">Supprimer</a>
+                    <a href="{{ path('order') }}" class="cart__button-click cart__button-validation">Valider</a>
+                    <a href="{{ path('remove_my_cart') }}" class="cart__button-click cart__button-delete">Supprimer</a>
                     <a href="{{ path('products') }}" class="cart__button-click cart__button-back">Retour</a>
                 </div>
 

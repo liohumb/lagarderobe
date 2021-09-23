@@ -30,8 +30,11 @@
                 <label for="inputPassword"> </label>
                 <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" placeholder="Votre mot de passe" required>
 
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                <button type="submit">Connexion</button>
+                <div class="connexion__button">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    <button type="submit" class="connexion__button-connexion">Connexion</button>
+                    <a href="{{ path('register') }}" class="connexion__button-subscribe">Inscription</a>
+                </div>
             </form>
 
         </div>
