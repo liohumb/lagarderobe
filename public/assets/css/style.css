@@ -2150,11 +2150,14 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 
 
 
+.order {
+    margin-top: 5.5rem;
+}
 .order__content {
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    margin-top: 4rem  ;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
 }
 
 .order__left {
@@ -2168,6 +2171,12 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
     margin-top: 2rem;
 }
 
+.order__recap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .order__delivery {
     display: flex;
     flex-direction: column;
@@ -2177,6 +2186,7 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 .order__delivery-add {
     display: flex;
     justify-content: center;
+    text-align: center;
     color: var(--text-color-light);
 }
 
@@ -2185,13 +2195,14 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 }
 
 .order__delivery #order_submit {
-    margin-left: 3.5rem;
+    margin-left: 1.5rem;
     align-items: center;
 }
 
 .required {
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 #order_addresses,
@@ -2259,6 +2270,7 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 
 .order__content-recap {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
@@ -2332,12 +2344,15 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 .order__carrier-price {
     font-size: 1.5rem;
     color: 	hsl(345, 100%, 74%);
-
 }
 
 .order__recap-title {
     text-align: center;
     margin-bottom: 4rem;
+}
+
+.order__recap-content {
+    margin-bottom: 2rem;
 }
 
 .order__recap-product {
@@ -2346,25 +2361,24 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 }
 
 .order__recap-productIllustration {
-    padding: .5rem;
-    background-color: var(--white-color);
-    width: 6rem;
-    margin-right: 2rem;
-}
-
-.order__recap-productIllustration:hover {
-    background-color: var(--first-color);
+    display: none;
 }
 
 .order__recap-productTitle {
     font-size: 1.5rem;
+    text-align: center;
+}
+
+.order__recap-productSubtitle {
+    text-align: center;
 }
 
 .order__recap-productNumber {
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column-reverse;
+    justify-content: center;
     align-items: center;
-    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 .order__recap-productQuantity {
@@ -2376,12 +2390,13 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 }
 
 .order__recap-productPriceNumber {
-    font-size: 2rem;
+    font-size: 1.7rem;
     color: 	hsl(345, 100%, 74%);
 }
 
 .order__recap-finalProduct {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
@@ -2457,6 +2472,693 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 .order__recap-buttonClick:hover {
     background-color: var(--first-color);
     color: var(--white-color);
+}
+
+@media screen and (min-width: 768px) {
+    .order {
+        margin: 0;
+    }
+    .order__content {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+        margin: 0;
+    }
+    .order__recap {
+        align-items: center;
+    }
+    .order__delivery #order_submit {
+        margin-left: 1rem;
+    }
+    #order_addresses,
+    #order_carriers {
+        margin: 1rem 0 2rem 0;
+    }
+    #order_addresses label {
+        width: 12rem;
+        height: 8rem;
+    }
+    #order_carriers label {
+        width: 13rem;
+        height: 12rem;
+    }
+    .order__recap-content {
+        margin: 0;
+    }
+    .order__recap-product {
+        justify-content: flex-start;
+        margin-bottom: 2rem;
+    }
+    .order__recap-productTitle {
+        text-align: start;
+    }
+    .order__recap-productNumber {
+        justify-content: flex-start;
+        margin-top: 1rem;
+    }
+    .order__recap-productQuantityNumber {
+        font-size: 1.2rem;
+    }
+    .order__content-recap {
+         display: flex;
+        flex-direction: column;
+         justify-content: space-around;
+         align-items: center;
+     }
+
+    .order__recap-address {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 6rem;
+    }
+
+    .order__recap-titleContent {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .order__recap-addressContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 15rem;
+        height: 15rem;
+        padding: 1.5rem;
+        text-align: center;
+        border-radius: 5%;
+        box-shadow: 0 0 10px -5px var(--first-color);
+    }
+
+    .order__recap-addressTitle {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .order__recap-carrier {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .order__recap-carrierContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 15rem;
+        height: 15rem;
+        padding: 1.5rem;
+        text-align: center;
+        border-radius: 5%;
+        box-shadow: 0 0 10px -5px var(--first-color);
+    }
+
+    .order__recap-carrierTitle {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .order__carrier-name,
+    .order__address-name,
+    .order__address-phone {
+        font-size: 1.5rem;
+    }
+
+    .order__carrier-description,
+    .order__address-address,
+    .order__address-post {
+        color: var(--text-color-light);
+    }
+
+    .order__carrier-price {
+        font-size: 1.5rem;
+        color: 	hsl(345, 100%, 74%);
+    }
+
+    .order__recap-title {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .order__recap-content {
+        margin-bottom: 2rem;
+    }
+
+    .order__recap-product {
+        display: flex;
+        align-items: center;
+    }
+
+    .order__recap-productIllustration {
+        display: none;
+    }
+
+    .order__recap-productTitle {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .order__recap-productSubtitle {
+        text-align: center;
+    }
+
+    .order__recap-productNumber {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .order__recap-productQuantity {
+        margin-right: 2rem;
+    }
+
+    .order__recap-productQuantityNumber {
+        font-size: 1.2rem;
+    }
+
+    .order__recap-productPriceNumber {
+        font-size: 2rem;
+        color: 	hsl(345, 100%, 74%);
+    }
+
+    .order__recap-finalProduct {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .order__recap-finalContent {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .order__recap-finalProductName {
+        float: left;
+        width: 60%;
+    }
+
+    .order__recap-finalProductNumber {
+        float: right;
+        width: 40%;
+        justify-content: flex-end;
+    }
+
+    .order__recap-price {
+        margin-top: 6rem;
+    }
+
+    .order__recap-priceSubtotal {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .order__recap-priceTitle,
+    .order__recap-priceNumber {
+        font-size: 1.5rem;
+    }
+
+    .order__recap-priceNumber {
+        text-align: right  ;
+    }
+
+    .order__recap-priceTotal {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 2rem;
+    }
+
+    .order__recap-totalPriceTitle {
+        font-size: 2rem;
+    }
+
+    .order__recap-button {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem 0 2rem 0;
+    }
+
+    .order__recap-buttonClick {
+        letter-spacing: 0.3em;
+        cursor: pointer;
+        color: var(--text-color);
+        font-size: 14px;
+        font-weight: 400;
+        max-width: 200px;
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+        width: 100%;
+        background: none;
+        padding: 1rem;
+    }
+
+    .order__recap-buttonClick:hover {
+        background-color: var(--first-color);
+        color: var(--white-color);
+    }
+}
+
+@media screen and (min-width: 968px) {
+    .order__delivery #order_submit {
+        margin-left: 2.2rem;
+    }
+    .order__recap {
+        display: block;
+    }
+    .order__recap-productIllustration {
+        display: flex;
+        padding: .5rem;
+        background-color: var(--white-color);
+        width: 6rem;
+        margin-right: 2rem;
+    }
+    .order__recap-productIllustration:hover {
+        background-color: var(--first-color);
+    }
+    .order__recap-productSubtitle {
+        text-align: start;
+    }
+    .order__recap-price {
+        margin-top: 6rem;
+    }
+    .order__content-recap {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .order__recap-address {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 6rem;
+    }
+
+    .order__recap-titleContent {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .order__recap-addressContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 15rem;
+        height: 15rem;
+        padding: 1.5rem;
+        text-align: center;
+        border-radius: 5%;
+        box-shadow: 0 0 10px -5px var(--first-color);
+    }
+
+    .order__recap-addressTitle {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .order__recap-carrier {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .order__recap-carrierContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 15rem;
+        height: 15rem;
+        padding: 1.5rem;
+        text-align: center;
+        border-radius: 5%;
+        box-shadow: 0 0 10px -5px var(--first-color);
+    }
+
+    .order__recap-carrierTitle {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .order__carrier-name,
+    .order__address-name,
+    .order__address-phone {
+        font-size: 1.5rem;
+    }
+
+    .order__carrier-description,
+    .order__address-address,
+    .order__address-post {
+        color: var(--text-color-light);
+    }
+
+    .order__carrier-price {
+        font-size: 1.5rem;
+        color: 	hsl(345, 100%, 74%);
+    }
+
+    .order__recap-title {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .order__recap-content {
+        margin-bottom: 2rem;
+    }
+
+    .order__recap-product {
+        display: flex;
+        align-items: center;
+    }
+
+    .order__recap-productIllustration {
+        display: none;
+    }
+
+    .order__recap-productTitle {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .order__recap-productSubtitle {
+        text-align: center;
+    }
+
+    .order__recap-productNumber {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .order__recap-productQuantity {
+        margin-right: 2rem;
+    }
+
+    .order__recap-productQuantityNumber {
+        font-size: 1.2rem;
+    }
+
+    .order__recap-productPriceNumber {
+        font-size: 2rem;
+        color: 	hsl(345, 100%, 74%);
+    }
+
+    .order__recap-finalProduct {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .order__recap-finalContent {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .order__recap-finalProductName {
+        float: left;
+        width: 60%;
+    }
+
+    .order__recap-finalProductNumber {
+        float: right;
+        width: 40%;
+        justify-content: flex-end;
+    }
+
+    .order__recap-price {
+        margin-top: 6rem;
+    }
+
+    .order__recap-priceSubtotal {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .order__recap-priceTitle,
+    .order__recap-priceNumber {
+        font-size: 1.5rem;
+    }
+
+    .order__recap-priceNumber {
+        text-align: right  ;
+    }
+
+    .order__recap-priceTotal {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 2rem;
+    }
+
+    .order__recap-totalPriceTitle {
+        font-size: 2rem;
+    }
+
+    .order__recap-button {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        margin-top: 7rem;
+        align-items: center;
+    }
+
+    .order__recap-buttonClick {
+        letter-spacing: 0.3em;
+        cursor: pointer;
+        color: var(--text-color);
+        font-size: 14px;
+        font-weight: 400;
+        max-width: 200px;
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+        width: 100%;
+        background: none;
+        padding: 1rem;
+    }
+
+    .order__recap-buttonClick:hover {
+        background-color: var(--first-color);
+        color: var(--white-color);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .order__delivery #order_submit {
+        margin-left: 4.5rem;
+    }
+    .required {
+        display: flex;
+        justify-content: center;
+    }
+    .order__content-recap {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .order__recap-address {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 6rem;
+    }
+
+    .order__recap-titleContent {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .order__recap-addressContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 15rem;
+        height: 15rem;
+        padding: 1.5rem;
+        text-align: center;
+        border-radius: 5%;
+        box-shadow: 0 0 10px -5px var(--first-color);
+    }
+
+    .order__recap-addressTitle {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .order__recap-carrier {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .order__recap-carrierContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 15rem;
+        height: 15rem;
+        padding: 1.5rem;
+        text-align: center;
+        border-radius: 5%;
+        box-shadow: 0 0 10px -5px var(--first-color);
+    }
+
+    .order__recap-carrierTitle {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .order__carrier-name,
+    .order__address-name,
+    .order__address-phone {
+        font-size: 1.5rem;
+    }
+
+    .order__carrier-description,
+    .order__address-address,
+    .order__address-post {
+        color: var(--text-color-light);
+    }
+
+    .order__carrier-price {
+        font-size: 1.5rem;
+        color: 	hsl(345, 100%, 74%);
+    }
+
+    .order__recap-title {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .order__recap-content {
+        margin-bottom: 2rem;
+    }
+
+    .order__recap-product {
+        display: flex;
+        align-items: center;
+    }
+
+    .order__recap-productIllustration {
+        display: none;
+    }
+
+    .order__recap-productTitle {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .order__recap-productSubtitle {
+        text-align: center;
+    }
+
+    .order__recap-productNumber {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .order__recap-productQuantity {
+        margin-right: 2rem;
+    }
+
+    .order__recap-productQuantityNumber {
+        font-size: 1.2rem;
+    }
+
+    .order__recap-productPriceNumber {
+        font-size: 2rem;
+        color: 	hsl(345, 100%, 74%);
+    }
+
+    .order__recap-finalProduct {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .order__recap-finalContent {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .order__recap-finalProductName {
+        float: left;
+        width: 60%;
+    }
+
+    .order__recap-finalProductNumber {
+        float: right;
+        width: 40%;
+        justify-content: flex-end;
+    }
+
+    .order__recap-price {
+        margin-top: 6rem;
+    }
+
+    .order__recap-priceSubtotal {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .order__recap-priceTitle,
+    .order__recap-priceNumber {
+        font-size: 1.5rem;
+    }
+
+    .order__recap-priceNumber {
+        text-align: right  ;
+    }
+
+    .order__recap-priceTotal {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 2rem;
+    }
+
+    .order__recap-totalPriceTitle {
+        font-size: 2rem;
+    }
+
+    .order__recap-button {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        margin-top: 7rem;
+        align-items: center;
+    }
+
+    .order__recap-buttonClick {
+        letter-spacing: 0.3em;
+        cursor: pointer;
+        color: var(--text-color);
+        font-size: 14px;
+        font-weight: 400;
+        max-width: 200px;
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+        width: 100%;
+        background: none;
+        padding: 1rem;
+    }
+
+    .order__recap-buttonClick:hover {
+        background-color: var(--first-color);
+        color: var(--white-color);
+    }
 }
 
 
