@@ -25,17 +25,20 @@
                             <h4 class="cart__title-name">{{ product.product.name }}</h4>
                         </div>
                     </div>
+
                     <div class="cart__content-right">
                         <div class="cart__content-price">
                             <div class="cart__price">
                                 <h5 class="cart__price-number">{{ ((product.product.price * product.quantity) / 100) | number_format(2, ' € ', '.') }}</h5>
                             </div>
+
                             <div class="cart__quantity">
                                 <a href="{{ path('decrease_to_cart', { 'id' : product.product.id }) }}" class="cart__quantity-minus"><i class="uil uil-minus"></i></a>
                                 <span class="cart__quantity-number">{{ product.quantity }}</span>
                                 <a href="{{ path('add_to_cart', { 'id' : product.product.id}) }}" class="cart__quantity-plus"><i class="uil uil-plus"></i></a>
                             </div>
                         </div>
+
                         <div class="cart__trash">
                             <a href="{{ path('delete_to_cart', { 'id' : product.product.id }) }}" class="cart__trash-button"><i class="uil uil-trash-alt"></i></a>
                         </div>
@@ -54,12 +57,14 @@
                     <div class="cart__recap-title">
                         <h3 class="cart__recap-titleName">Récapitulatif</h3>
                     </div>
+
                     <div class="cart__recap-content">
                         <div class="cart__recap-contentLeft">
                             <h4><i>Nombre de produit(s) :</i></h4>
                             <h4><i>Prix Hors Taxe :</i></h4>
                             <h4><i>Prix du panier :</i></h4>
                         </div>
+
                         <div class="cart__recap-contentRight">
                             <span class="cart__recap-cartLength">{{ cart|length }}</span>
                             <span class="cart__recap-priceHT">{{ ((total / 100) - (((total / 100) / 120) * 20))| number_format(2, ' € ', '.') }}</span>
@@ -87,6 +92,7 @@
                 <div class="cart__content">
                     <h1 class="cart__content-title">Votre panier est vide</h1>
                 </div>
+
                 <div class="cart__button">
                     <a href="{{ path('products') }}" class="cart__button-click cart__button-back">Retour</a>
                 </div>

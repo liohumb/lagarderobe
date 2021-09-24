@@ -25,6 +25,7 @@
                             <h6 class="order__recap-addressTitle order__address-phone">{{ delivery.phone }}</h6>
                         </div>
                     </div>
+
                     <div class="order__recap-carrier">
                         <h4 class="order__recap-titleContent">Mon transporteur</h4>
                         <div class="order__recap-carrierContent">
@@ -35,29 +36,38 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="order__right">
                     <div class="order__recap">
                         <h4 class="order__recap-title">Récapitulatif de ma commande</h4>
+
                         {% set total = null %}
+
                         {% for product in cart %}
+
                             <div class="order__recap-product order__recap-finalProduct">
-                                    <div class="order__recap-productName order__recap-finalProductName">
-                                        <h5 class="order__recap-productTitle">{{ product.product.name }}</h5>
-                                        <h5 class="order__recap-productSubtitle"><i>{{ product.product.subtitle }}</i></h5>
+                                <div class="order__recap-productName order__recap-finalProductName">
+                                    <h5 class="order__recap-productTitle">{{ product.product.name }}</h5>
+                                    <h5 class="order__recap-productSubtitle"><i>{{ product.product.subtitle }}</i></h5>
+                                </div>
+
+                                <div class="order__recap-productNumber order__recap-finalProductNumber">
+                                    <div class="order__recap-productQuantity">
+                                        <h5 class="order__recap-productQuantityNumber"><i class="uil uil-multiply"></i> {{ product.quantity }}</h5>
                                     </div>
-                                    <div class="order__recap-productNumber order__recap-finalProductNumber">
-                                        <div class="order__recap-productQuantity">
-                                            <h5 class="order__recap-productQuantityNumber"><i class="uil uil-multiply"></i> {{ product.quantity }}</h5>
-                                        </div>
-                                        <div class="order__recap-productPrice">
-                                            <h5 class="order__recap-productPriceNumber">{{ ((product.product.price * product.quantity) / 100) | number_format(2, ' € ', '.') }}</h5>
-                                        </div>
+                                    <div class="order__recap-productPrice">
+                                        <h5 class="order__recap-productPriceNumber">{{ ((product.product.price * product.quantity) / 100) | number_format(2, ' € ', '.') }}</h5>
                                     </div>
+                                </div>
                             </div>
-                            {% set total = total + (product.product.price * product.quantity) %}
+
+                        {% set total = total + (product.product.price * product.quantity) %}
+
                         {% endfor %}
+
                         <div class="order__recap-price">
                             <h4 class="order__recap-title">Récapitulatif de ma facture</h4>
+
                             <div class="order__recap-priceSubtotal">
                                 <div class="order__recap-subtotalLeft">
                                     <div class="order__recap-subtotalPriceTitle">
@@ -66,6 +76,7 @@
                                         <h6 class="order__recap-priceTitle">Livraison : </h6>
                                     </div>
                                 </div>
+
                                 <div class="order__recap-subtotalRight">
                                     <div class="order__recap-priceNumber">
                                         <h6 class="order__recap-priceNumber">{{ ((total / 100) - (((total / 100) / 120) * 20))| number_format(2, ' € ', '.') }}</h6>
@@ -74,12 +85,14 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="order__recap-priceTotal">
                                 <div class="order__recap-totalLeft">
                                     <div class="order__recap-totalPriceTitle">
                                         <h6 class="order__recap-totalPriceTitle">Total : </h6>
                                     </div>
                                 </div>
+
                                 <div class="order__recap-totalRight">
                                     <div class="order__recap-totalPriceNumber">
                                         <h6 class="order__recap-totalPriceTitle">{{ ((total / 100) + (carrier.price / 100))| number_format(2, ' € ', '.') }}</h6>
@@ -87,6 +100,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="order__recap-button">
                             <a href="" class="order__recap-buttonClick">Payer <i class="uil uil-credit-card"></i></a>
                         </div>

@@ -9,9 +9,15 @@
     <section class="products section" id="products">
         <div class="products__container container grid">
             <h1 class="products__title">Les Produits</h1>
+
+            <div class="products__categories">
+                <div class="products__gender"></div>
+                <div class="product__category"></div>
+            </div>
         </div>
 
         <div class="product__container container grid">
+
             {% for product in products %}
 
                 <div class="product">
@@ -19,6 +25,7 @@
                         <div class="product__img">
                             <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}">
                         </div>
+
                         <div class="product__detail">
                             <div class="product__detail-center">
                                 <h1>{{ product.name }}</h1>
@@ -35,6 +42,7 @@
                 </div>
 
             {% endfor %}
+
         </div>
     </section>
 
