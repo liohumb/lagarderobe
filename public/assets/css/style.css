@@ -1131,25 +1131,50 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
     font-size: var(--biggest-font-size);
 }
 
-.products .products__container select {
-    font-family: "Poppins", sans-serif;
-    width: 10rem;
-    margin-right: 1rem;
-    margin-left: 1rem;
+.products__filter {
+    display: flex;
+    align-items: flex-end;
 }
 
-.products__form {
+#genders {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+    justify-items: center;
+    align-items: center;
+}
+
+#categories {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1rem;
+    justify-items: center;
+    align-items: center;
+}
+
+.products__gender #submit,
+.products__category #submit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#submit {
+    letter-spacing: 0.3em;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 14px;
+    font-weight: 400;
     position: relative;
-    z-index: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+    background: none;
 }
 
-.products__form-span {
-    position: absolute;
-    top: 50%;
-    right: 1rem;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    z-index: 0;
+#submit:hover {
+    background: var(--first-color);
+    color: var(--white-color);
 }
 
 .product__container {
@@ -1937,12 +1962,6 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 
 /* RESPONSIVE * MEDIA QUERY */
 
-
-@media screen and (max-width: 579px){
-    .products__form {
-        text-align: center;
-    }
-}
 
 @media only screen and (max-width: 768px) {
     .section{

@@ -2,6 +2,8 @@
 
 namespace App\Repository;
 
+use App\Class\FilterCategory;
+use App\Class\FilterGender;
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -17,6 +19,44 @@ class ProductRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Product::class);
+    }
+
+
+    /**
+     * Requête qui me permet de récupérer les produits en fonction de la recherche de l'utilisateur
+     * @return Product[]
+     */
+    public function findWithFilterCategory (FilterCategory $filterCategory): array
+    {
+        $query = $this->createQueryBuilder('p')
+                      ->select('c', 'p')
+                      ->join('p.category', 'c');
+
+        if (!empty($filterCategory->categories)) {
+            $query = $query->andWhere('c.id IN (:categories)')
+                           ->setParameter('categories', $filterCategory->categories);
+        }
+
+        return $query->getQuery()->getResult();
+    }
+
+
+    /**
+     * Requête qui me permet de récupérer les produits en fonction de la recherche de l'utilisateur
+     * @return Product[]
+     */
+    public function findWithFilterGender (FilterGender $filterGender): array
+    {
+        $query = $this->createQueryBuilder('p')
+                      ->select('g', 'p')
+                      ->join('p.gender', 'g');
+
+        if (!empty($filterGender->genders)) {
+            $query = $query->andWhere('g.id IN (:genders)')
+                           ->setParameter('genders', $filterGender->genders);
+        }
+
+        return $query->getQuery()->getResult();
     }
 
     // /**

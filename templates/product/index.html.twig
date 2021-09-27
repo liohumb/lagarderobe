@@ -10,9 +10,13 @@
         <div class="products__container container grid">
             <h1 class="products__title">Les Produits</h1>
 
-            <div class="products__categories">
-                <div class="products__gender"></div>
-                <div class="product__category"></div>
+            <div class="products__filter">
+                <div class="products__gender">
+                    {{ form(gender) }}
+                </div>
+                <div class="products__category">
+                    {{ form(category) }}
+                </div>
             </div>
         </div>
 
