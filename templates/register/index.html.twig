@@ -11,6 +11,10 @@
         <h1 class="section__title">Inscription</h1>
         <h3 class="section__subtitle"><i>Ravi de faire votre connaissance, <br>merci de saisir les informations demandées afin de vous inscrire.</i></h3>
 
+        {% if notification %}
+            <h3 class="section__subtitle"><i>{{ notification }}</i></h3>
+        {% endif %}
+
         <div class="subscribe__container grid">
 
             <div class="subscribe__form subscribe__button-effect">
