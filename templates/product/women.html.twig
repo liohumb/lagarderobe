@@ -8,7 +8,7 @@
 
     <section class="products section" id="products">
         <div class="products__container container grid">
-            <h1 class="products__title">Les Produits</h1>
+            <h1 class="products__title">Les Produits au feminin</h1>
 
             <div class="filter__container container">
                 <div>
@@ -31,10 +31,6 @@
                                 <div class="products__form-filter">
                                     {{ form_start(form) }}
                                     <div class="products__filter">
-                                        <div class="products__filter-genders">
-                                            {{ form_widget(form.gender) }}
-                                            <h2 class="products__filter-title">Choisissez un genre</h2>
-                                        </div>
                                         <div class="products__filter-categories">
                                             {{ form_widget(form.categories) }}
                                             <h2 class="products__filter-title">Choisissez une catégorie</h2>
@@ -42,7 +38,7 @@
                                     </div>
                                     <div class="products__filter-button">
                                         <button type="submit" class="products__button">Filter <i class="uil uil-search"></i></button>
-                                        <a href="{{ path('products') }}" class="filter__reset-button">Réinitialiser</a>
+                                        <a href="{{ path('productsWomen') }}" class="filter__reset-button">Réinitialiser</a>
                                     </div>
                                     {{ form_end(form) }}
                                 </div>

@@ -12,7 +12,7 @@
                 <span class="home__data-subtitle">La boutique 100% made in france</span>
                 <h1 class="home__data-title">La Garde Robe</h1>
                 <div class="home__button">
-                    <a href="#" class=""></a>
+                    <a href="{{ path('products') }}" class="home__button-title">Voir tous les produits <i class="uil uil-angle-double-right home__button-arrow"></i></a>
                 </div>
             </div>
 
@@ -25,35 +25,36 @@
         <div class="category__container container grid">
 
             <div class="category__card">
-                <div class="category__card-dotted">
-                    <div class="category__content">
-                        <h2>Côté <br />Femmes</h2>
-                        <h4 class="category__content-subtitle">Le meilleur de la mode</h4>
+                <a href="{{ path('productsWomen') }}">
+                    <div class="category__card-dotted">
+                        <div class="category__content">
+                            <h2>Côté <br />Femmes</h2>
+                            <h4 class="category__content-subtitle">Le meilleur de la mode</h4>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <div class="category__card">
-                <div class="category__card-dotted">
-
-                    <div class="category__content">
-                        <h2>Côté <br />Homme</h2>
-                        <h4 class="category__content-subtitle">Le top de la tendance</h4>
+                <a href="{{ path('productsMen') }}">
+                    <div class="category__card-dotted">
+                        <div class="category__content">
+                            <h2>Côté <br />Homme</h2>
+                            <h4 class="category__content-subtitle">Le top de la tendance</h4>
+                        </div>
                     </div>
-
-                </div>
-
+                </a>
             </div>
 
             <div class="category__card">
-                <div class="category__card-dotted">
-
-                    <div class="category__content">
-                        <h2>Côté <br />Bébé</h2>
-                        <h4 class="category__content-subtitle">Ses premiers vetements</h4>
+                <a href="{{ path('productsBaby') }}">
+                    <div class="category__card-dotted">
+                        <div class="category__content">
+                            <h2>Côté <br />Bébé</h2>
+                            <h4 class="category__content-subtitle">Ses premiers vetements</h4>
+                        </div>
                     </div>
-                </div>
-
+                </a>
             </div>
 
         </div>

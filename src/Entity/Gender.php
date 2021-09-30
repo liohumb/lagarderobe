@@ -34,7 +34,7 @@ class Gender
         $this->products = new ArrayCollection();
     }
 
-    public function __toString()
+    public function __toString() :string
     {
         return $this->getName();
     }

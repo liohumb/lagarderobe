@@ -25,9 +25,12 @@ class Category
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="category")
+     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="category")
      */
     private $products;
+    /**
+     * @var null
+     */
 
     public function __construct()
     {
@@ -68,7 +71,7 @@ class Category
     {
         if (!$this->products->contains($product)) {
             $this->products[] = $product;
-            $product->addCategory($this);
+            $product->setCategory($this);
         }
 
         return $this;
@@ -77,7 +80,10 @@ class Category
     public function removeProduct(Product $product): self
     {
         if ($this->products->removeElement($product)) {
-            $product->removeCategory($this);
+            // set the owning side to null (unless already changed)
+            if ($product->getCategory() === $this) {
+                $product->setCategory(null);
+            }
         }
 
         return $this;

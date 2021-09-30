@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
+ * @ORM\HasLifecycleCallbacks()
  */
 class Product
 {
@@ -50,20 +51,16 @@ class Product
     private $price;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="products")
-     */
-    private $category;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Gender::class, inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $gender;
+    private ?Gender $gender;
 
-    public function __construct()
-    {
-        $this->category = new ArrayCollection();
-    }
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="products")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private ?Category $category;
 
     public function getId(): ?int
     {
@@ -142,30 +139,6 @@ class Product
         return $this;
     }
 
-    /**
-     * @return Collection|Category[]
-     */
-    public function getCategory(): Collection
-    {
-        return $this->category;
-    }
-
-    public function addCategory(Category $category): self
-    {
-        if (!$this->category->contains($category)) {
-            $this->category[] = $category;
-        }
-
-        return $this;
-    }
-
-    public function removeCategory(Category $category): self
-    {
-        $this->category->removeElement($category);
-
-        return $this;
-    }
-
     public function getGender(): ?Gender
     {
         return $this->gender;
@@ -176,5 +149,30 @@ class Product
         $this->gender = $gender;
 
         return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+
+    /**
+     * @ORM\PostLoad
+     *
+     * @todo Remove once 0 values in the table are converted to NULL.
+     */
+    public function loadNullDoctor()
+    {
+        if ($this->category->getId() === 0) {
+            $this->category = null;
+        }
     }
 }

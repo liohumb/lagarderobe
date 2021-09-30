@@ -3,9 +3,8 @@
 namespace App\Class;
 
 use App\Entity\Category;
-use App\Entity\Gender;
 
-class FilterCategory
+class FilterBaby extends \App\Class\Filter
 {
     /**
      * @var Category[]

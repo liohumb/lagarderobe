@@ -2,10 +2,14 @@
 
 namespace App\Repository;
 
-use App\Class\FilterCategory;
-use App\Class\FilterGender;
+use App\Class\Filter;
+use App\Class\FilterBaby;
+use App\Class\FilterMen;
+use App\Class\FilterWomen;
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -21,39 +25,67 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
-
     /**
-     * Requête qui me permet de récupérer les produits en fonction de la recherche de l'utilisateur
+     * Requête qui me permet de récupérer les produits en fonction du filtrage de l'utilisateur
+     * @param Filter $filter
      * @return Product[]
      */
-    public function findWithFilterCategory (FilterCategory $filterCategory): array
+    public function findWithFilter(Filter $filter): array
     {
         $query = $this->createQueryBuilder('p')
-                      ->select('c', 'p')
-                      ->join('p.category', 'c');
+                      ->select('c', 'g', 'p')
+                      ->join('p.category','c')
+                      ->join('p.gender', 'g');
 
-        if (!empty($filterCategory->categories)) {
-            $query = $query->andWhere('c.id IN (:categories)')
-                           ->setParameter('categories', $filterCategory->categories);
+        if (!empty($filter->categories) && !empty($filter->gender)) {
+            $query = $query->andWhere('c.id IN (:categories)', 'g.id IN (:genders)')
+                           ->setParameter('categories', $filter->categories)
+                           ->setParameter('genders', $filter->gender);
         }
 
         return $query->getQuery()->getResult();
     }
 
-
     /**
-     * Requête qui me permet de récupérer les produits en fonction de la recherche de l'utilisateur
+     * Requête qui me permet de récupérer les produit du genre 'femme' en fonction du filtrage de l'utilisateur
+     * @param FilterWomen $filterWomen
      * @return Product[]
      */
-    public function findWithFilterGender (FilterGender $filterGender): array
+    public function findWithFilterWomen(FilterWomen $filterWomen): array
     {
         $query = $this->createQueryBuilder('p')
-                      ->select('g', 'p')
-                      ->join('p.gender', 'g');
+                      ->select('w', 'p')
+                      ->join('p.category', 'w');
 
-        if (!empty($filterGender->genders)) {
-            $query = $query->andWhere('g.id IN (:genders)')
-                           ->setParameter('genders', $filterGender->genders);
+        if (!empty($filterWomen->categories)) {
+            $query = $query->andWhere('w.id IN (:categories)')
+                           ->setParameter('categories', $filterWomen->categories);
+        }
+
+        return $query->getQuery()->getResult();
+    }
+
+    public function findWithFilterMen(FilterMen $filterMen) {
+        $query = $this->createQueryBuilder('p')
+                      ->select('m', 'p')
+                      ->join('p.category', 'm');
+
+        if (!empty($filterMen->categories)) {
+            $query = $query->andWhere('m.id IN (:categories)')
+                           ->setParameter('categories', $filterMen->categories);
+        }
+
+        return $query->getQuery()->getResult();
+    }
+
+    public function findWithFilterBaby(FilterBaby $filterBaby) {
+        $query = $this->createQueryBuilder('p')
+                      ->select('b', 'p')
+                      ->join('p.category', 'b');
+
+        if (!empty($filterBaby->categories)) {
+            $query = $query->andWhere('b.id IN (:categories)')
+                           ->setParameter('categories', $filterBaby->categories);
         }
 
         return $query->getQuery()->getResult();

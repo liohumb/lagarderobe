@@ -2,10 +2,15 @@
 
 namespace App\Controller;
 
-use App\Class\FilterCategory;
-use App\Class\FilterGender;
+use App\Class\Filter;
+use App\Class\FilterBaby;
+use App\Class\FilterMen;
+use App\Class\FilterWomen;
 use App\Entity\Product;
-use App\Form\FilterGenderType;
+use App\Form\FilterBabyType;
+use App\Form\FilterMenType;
+use App\Form\FilterWomenType;
+use App\Form\FilterType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,27 +35,78 @@ class ProductController extends AbstractController
     {
         $products = $this->entityManager->getRepository(Product::class)->findAll();
 
-        $filterGender = new FilterGender();
-        $filterCategory = new FilterCategory();
+        $filter = new Filter();
+        $form = $this->createForm(FilterType::class, $filter);
 
-        $formGender = $this->createForm(FilterGenderType::class, $filterGender);
-        $formCategory = $this->createForm(\App\Form\FilterCategoryType::class, $filterCategory);
+        $form->handleRequest($request);
 
-        $formGender->handleRequest($request);
-        $formCategory->handleRequest($request);
-
-        if ($formGender->isSubmitted() && $formGender->isValid()) {
-            $products = $this->entityManager->getRepository(Product::class)->findWithFilterGender($filterGender);
-        }
-
-        if ($formCategory->isSubmitted() && $formCategory->isValid()) {
-            $products = $this->entityManager->getRepository(Product::class)->findWithFilterCategory($filterCategory);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $products = $this->entityManager->getRepository(Product::class)->findWithFilter($filter);
         }
 
         return $this->render('product/index.html.twig', [
             'products' => $products,
-            'category' => $formCategory->createView(),
-            'gender' => $formGender->createView()
+            'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('/produits/femme', name: 'productsWomen')]
+    public function women(Request $request): Response
+    {
+        $products = $this->entityManager->getRepository(Product::class)->findBy(['gender' => 1]);
+
+        $filterWomen = new FilterWomen();
+        $formWomen = $this->createForm(FilterWomenType::class, $filterWomen);
+
+        $formWomen->handleRequest($request);
+
+        if ($formWomen->isSubmitted() && $formWomen->isValid()) {
+            $products = $this->entityManager->getRepository(Product::class)->findWithFilterWomen($filterWomen);
+        }
+
+        return $this->render('product/women.html.twig', [
+            'products' => $products,
+            'form' => $formWomen->createView()
+        ]);
+    }
+
+    #[Route('/produits/homme', name: 'productsMen')]
+    public function men(Request $request): Response
+    {
+        $products = $this->entityManager->getRepository(Product::class)->findBy(['gender' => 2]);
+
+        $filterMen = new FilterMen();
+        $formMen = $this->createForm(FilterMenType::class, $filterMen);
+
+        $formMen->handleRequest($request);
+
+        if ($formMen->isSubmitted() && $formMen->isValid()) {
+            $products = $this->entityManager->getRepository(Product::class)->findWithFilterMen($filterMen);
+        }
+
+        return $this->render('product/men.html.twig', [
+            'products' => $products,
+            'form' => $formMen->createView()
+        ]);
+    }
+
+    #[Route('/produits/bebe', name: 'productsBaby')]
+    public function baby(Request $request): Response
+    {
+        $products = $this->entityManager->getRepository(Product::class)->findBy(['gender' => 3]);
+
+        $filterBaby = new FilterBaby();
+        $formBaby = $this->createForm(FilterBabyType::class, $filterBaby);
+
+        $formBaby->handleRequest($request);
+
+        if ($formBaby->isSubmitted() && $formBaby->isValid()) {
+            $products = $this->entityManager->getRepository(Product::class)->findWithFilterBaby($filterBaby);
+        }
+
+        return $this->render('product/baby.html.twig', [
+            'products' => $products,
+            'form' => $formBaby->createView()
         ]);
     }
 

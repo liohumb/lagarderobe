@@ -2,36 +2,39 @@
 
 namespace App\Form;
 
-use App\Class\FilterGender;
+use App\Class\Filter;
 use App\Entity\Category;
 use App\Entity\Gender;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class FilterGenderType extends AbstractType
+class FilterType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('genders', EntityType::class, [
+            ->add('categories', EntityType::class, [
                 'label' => false,
-                'required' => false,
-                'class' => Gender::class,
+                'required' => true,
+                'class' => Category::class,
                 'multiple' => true
             ])
-            ->add('submit', SubmitType::class, [
-                'label' => 'Filtrer'
+            ->add('gender', EntityType::class, [
+                'label' => false,
+                'required' => true,
+                'class' => Gender::class,
+                'multiple' => true
             ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => FilterGender::class,
-            'method' => 'GET'
+            'data_class' => Filter::class,
+            'method' => 'GET',
+            'crsf_protection' => false
         ]);
     }
 
