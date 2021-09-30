@@ -51,4 +51,41 @@
 
     </section>
 
+    <section class="feature section">
+
+        <div class="feature__title">
+            <h1>Nos Produits du Moment</h1>
+        </div>
+
+        <div class="product__container container grid">
+
+            {% for product in products %}
+
+                <div class="product">
+                    <div class="product__card">
+                        <div class="product__img">
+                            <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}">
+                        </div>
+
+                        <div class="product__detail">
+                            <div class="product__detail-center">
+                                <h1>{{ product.name }}</h1>
+                                <h4 class="price">{{ (product.price / 100) | number_format(2, ' € ', '.') }}</h4>
+                                <ul>
+                                    <li><a href="{{ path('product', { 'slug' : product.slug }) }}"><i class="uil uil-search"></i></a></li>
+                                    <li><a href="#"><i class="uil uil-heart-alt"></i></a></li>
+                                    <li><a href="#"><i class="uil uil-share"></i></a></li>
+                                    <li><a href="{{ path('add_to_cart', { 'id' : product.id }) }}"><i class="uil uil-shopping-cart"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
 {% endblock %}
