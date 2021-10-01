@@ -34,12 +34,17 @@
                                 <a href="{{ path('app_login') }}" class="nav__link">Connexion</a>
                             {% endif %}
                         </li>
+                        <li>
+                            <a href="#" class="nav__link">Vos favoris <i class="uil uil-heart"></i></a>
+                        </li>
                     </ul>
 
                     <i class="uil uil-times nav__close" id="nav-close"></i>
                 </div>
 
+                <div class="nav__menu-cart">
                     <a href="{{ path('cart') }}" class="nav__cart"><i class="uil uil-shopping-bag"></i></a>
+                </div>
 
                 <div class="nav__toggle" id="nav-toggle">
                     <i class="uil uil-bars"></i>

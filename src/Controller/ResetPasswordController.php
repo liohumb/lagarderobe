@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Class\Mail;
 use App\Entity\ResetPassword;
 use App\Entity\User;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ResetPasswordController extends AbstractController
 {
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
     /**
      * @param EntityManagerInterface $entityManager
@@ -37,8 +38,8 @@ class ResetPasswordController extends AbstractController
             if ($user) {
                 $reset_password = new ResetPassword();
                 $reset_password->setUser($user);
-                $reset_password->setToken(uniqid());
-                $reset_password->setCreatedAt(new \DateTime());
+                $reset_password->setToken(uniqid('', true));
+                $reset_password->setCreatedAt(new DateTime());
                 $this->entityManager->persist($reset_password);
                 $this->entityManager->flush();
 
@@ -60,6 +61,6 @@ class ResetPasswordController extends AbstractController
     #[Route('/modifier-mon-mot-de-passe/{token}', name: 'update_password')]
     public function update($token): Response
     {
-
+        dd($token);
     }
 }

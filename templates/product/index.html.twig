@@ -57,34 +57,38 @@
 
         </div>
 
-        <div class="product__container container grid">
+        <div class="product__container-scroll">
 
-            {% for product in products %}
+            <div class="product__scroll product__squares">
 
-                <div class="product">
-                    <div class="product__card">
-                        <div class="product__img">
-                            <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}">
-                        </div>
+                {% for product in products %}
 
-                        <div class="product__detail">
-                            <div class="product__detail-center">
-                                <h1>{{ product.name }}</h1>
-                                <h4 class="price">{{ (product.price / 100) | number_format(2, ' € ', '.') }}</h4>
-                                <ul>
-                                    <li><a href="{{ path('product', { 'slug' : product.slug }) }}"><i class="uil uil-search"></i></a></li>
-                                    <li><a href="#"><i class="uil uil-heart-alt"></i></a></li>
-                                    <li><a href="#"><i class="uil uil-share"></i></a></li>
-                                    <li><a href="{{ path('add_to_cart', { 'id' : product.id }) }}"><i class="uil uil-shopping-cart"></i></a></li>
-                                </ul>
+                    <div class="product">
+                        <div class="product__card">
+                            <div class="product__img">
+                                <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}">
+                            </div>
+
+                            <div class="product__detail">
+                                <div class="product__detail-center">
+                                    <h1>{{ product.name }}</h1>
+                                    <h4 class="price">{{ (product.price / 100) | number_format(2, ' € ', '.') }}</h4>
+                                    <ul>
+                                        <li><a href="{{ path('product', { 'slug' : product.slug }) }}" class="product__icon-show"><i class="uil uil-search"></i></a></li>
+                                        <li><a href="#" class="product__icon-heart"><i class="uil uil-heart-alt"></i></a></li>
+                                        <li><a href="#" class="product__icon-share"><i class="uil uil-share"></i></a></li>
+                                        <li><a href="{{ path('add_to_cart', { 'id' : product.id }) }}" class="product__icon-add"><i class="uil uil-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-            {% endfor %}
+                {% endfor %}
 
+            </div>
         </div>
+
     </section>
 
 {% endblock %}
