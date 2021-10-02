@@ -8,8 +8,8 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class Cart
 {
-    private $session;
-    private $entityManager;
+    private SessionInterface $session;
+    private EntityManagerInterface $entityManager;
 
     /**
      * @param EntityManagerInterface $entityManager
@@ -22,7 +22,7 @@ class Cart
     }
 
 
-    public function add($id)
+    public function add($id): void
     {
         $cart = $this->session->get('cart');
 
@@ -67,7 +67,7 @@ class Cart
         return $this->session->remove('cart');
     }
 
-    public function getFull()
+    public function getFull(): array
     {
         $cartComplete = [];
 

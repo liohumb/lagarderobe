@@ -82,7 +82,7 @@
                                 <h4 class="price">{{ (product.price / 100) | number_format(2, ' € ', '.') }}</h4>
                                 <ul>
                                     <li><a href="{{ path('product', { 'slug' : product.slug }) }}"><i class="uil uil-search"></i></a></li>
-                                    <li><a href="#"><i class="uil uil-heart-alt"></i></a></li>
+                                    <li><a href="{{ path('add_to_favorite', { 'id' : product.id }) }}"><i class="uil uil-heart-alt"></i></a></li>
                                     <li><a href="#"><i class="uil uil-share"></i></a></li>
                                     <li><a href="{{ path('add_to_cart', { 'id' : product.id }) }}"><i class="uil uil-shopping-cart"></i></a></li>
                                 </ul>

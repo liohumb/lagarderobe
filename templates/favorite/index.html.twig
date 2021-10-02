@@ -1,20 +1,69 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello FavoriteController!{% endblock %}
+{% block title %}Mes Favoris • La Garde Robe{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block hero %}{% endblock %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+{% block content %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/lio/Documents/cours/AFPA/Symfony/lagarderobe/src/Controller/FavoriteController.php'|file_link(0) }}">src/Controller/FavoriteController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/lio/Documents/cours/AFPA/Symfony/lagarderobe/templates/favorite/index.html.twig'|file_link(0) }}">templates/favorite/index.html.twig</a></code></li>
-    </ul>
-</div>
+    {% if favorite|length > 0 %}
+
+        <section class="products section" id="products">
+            <h1 class="section__title">Mes Favoris</h1>
+            <h3 class="section__subtitle">Retrouvez l'ensemble des produits que vous avez ajouté à vos favoris.</h3>
+
+            <div class="product__container-scroll">
+
+                <div class="product__scroll product__squares">
+
+                    {% for product in favorite %}
+
+                        <div class="product">
+                            <div class="product__card">
+                                <div class="product__img">
+                                    <img src="/uploads/{{ product.product.illustration }}" alt="{{ product.product.name }}">
+                                </div>
+
+                                <div class="product__detail">
+                                    <div class="product__detail-center">
+                                        <h1>{{ product.product.name }}</h1>
+                                        <h4 class="price">{{ (product.product.price / 100) | number_format(2, ' € ', '.') }}</h4>
+                                        <ul>
+                                            <li><a href="{{ path('product', { 'slug' : product.product.slug }) }}" class="product__icon-show"><i class="uil uil-search"></i></a></li>
+                                            <li><a href="{{ path('delete_to_favorite', { 'id' : product.product.id }) }}" class="product__icon-heart"><i class="uil uil-heart-break"></i></a></li>
+                                            <li><a href="#" class="product__icon-share"><i class="uil uil-share"></i></a></li>
+                                            <li><a href="{{ path('add_to_cart', { 'id' : product.product.id }) }}" class="product__icon-add"><i class="uil uil-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+
+        </section>
+
+    {% else %}
+
+        <section class="favorite section">
+
+            <div class="favorite__container container grid">
+
+                <div class="favorite__content">
+                    <h1 class="favorite__content-title">Vous n'avez pas de favoris :(</h1>
+                </div>
+
+                <div class="favorite__button">
+                    <a href="{{ path('products') }}" class="favorite__button-click favorite__button-back">Retour</a>
+                </div>
+
+            </div>
+
+        </section>
+
+    {% endif %}
+
 {% endblock %}
