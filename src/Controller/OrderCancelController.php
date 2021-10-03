@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class OrderValidateController extends AbstractController
+class OrderCancelController extends AbstractController
 {
-    #[Route('/order/validate', name: 'order_validate')]
+    #[Route('/order/cancel', name: 'order_cancel')]
     public function index(): Response
     {
-        return $this->render('order_validate/index.html.twig', [
-            'controller_name' => 'OrderValidateController',
+        return $this->render('order_cancel/index.html.twig', [
+            'controller_name' => 'OrderCancelController',
         ]);
     }
 }
