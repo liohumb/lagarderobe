@@ -6,6 +6,7 @@ use App\Class\Cart;
 use App\Entity\Order;
 use App\Entity\OrderDetails;
 use App\Form\OrderType;
+use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class OrderController extends AbstractController
 {
-    private $entityManger;
+    private EntityManagerInterface $entityManger;
 
     /**
      * @param EntityManagerInterface $entityManger
@@ -26,7 +27,7 @@ class OrderController extends AbstractController
 
 
     #[Route('/commande', name: 'order')]
-    public function index(Cart $cart, Request $request): Response
+    public function index(Cart $cart): Response
     {
         if (!$this->getUser()->getAddresses()->getValues()) {
             return $this->redirectToRoute('account_address_add');
@@ -52,7 +53,7 @@ class OrderController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $date = new \DateTimeImmutable();
+            $date = new DateTimeImmutable();
             $carriers = $form->get('carriers')->getData();
             $delivery = $form->get('addresses')->getData();
             $delivery_content = $delivery->getFirstname().' '.$delivery->getLastname();
@@ -67,6 +68,8 @@ class OrderController extends AbstractController
             $delivery_content .='<br/>'.$delivery->getCountry();
 
             $order = new Order();
+            $reference = $date->format('dmY').'-'.uniqid('', true);
+            $order->setReference($reference);
             $order->setUser($this->getUser());
             $order->setCreatedAt($date);
             $order->setCarrierName($carriers->getName());
@@ -93,7 +96,8 @@ class OrderController extends AbstractController
             return $this->render('order/add.html.twig', [
                 'cart' => $cart->getFull(),
                 'carrier' => $carriers,
-                'delivery' => $delivery
+                'delivery' => $delivery,
+                'reference' => $order->getReference()
             ]);
         }
 

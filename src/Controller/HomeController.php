@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Class\Cart;
 use App\Entity\Hero;
 use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;

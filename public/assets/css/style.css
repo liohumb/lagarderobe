@@ -235,7 +235,7 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 }
 
 .section__title {
-    font-size: var(--h2-font-size);
+    font-size: var(--h1-font-size);
     color: var(--title-color);
     text-align: center;
     text-transform: capitalize;
@@ -855,7 +855,8 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 }
 
 .account__data-buttonBackClick,
-.account__address-buttonAdd {
+.account__address-buttonAdd,
+.account__orders-button {
     letter-spacing: 0.3em;
     cursor: pointer;
     color: var(--text-color);
@@ -871,7 +872,8 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 }
 
 .account__data-buttonBackClick:hover,
-.account__address-buttonAdd:hover {
+.account__address-buttonAdd:hover,
+.account__orders-button:hover {
     background: var(--first-color);
     color: var(--white-color);
 }
@@ -1043,6 +1045,96 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 .account__address-cardFirstname,
 .account__address-cardPostal {
     margin-right: .5rem;
+}
+
+
+/* GESTIONNAIRE DES COMMANDES * ACCOUNT ORDERS PAGE */
+
+
+.account__orders {
+    margin: 3rem;
+}
+
+.account__orders-emptyMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.account__orders-message {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.account__orders-message:hover {
+    color: var(--first-color);
+}
+
+.account__orders-subtitle {
+    margin-top: 2rem;
+}
+
+.account__orders-contentTable {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+    gap: 0 8rem;
+    justify-items: center;
+}
+
+.account__order-table {
+    width: 100%;
+}
+
+.account__table-title {
+    text-align: left;
+}
+
+.account__table-reference {
+    color: var(--white-color);
+    text-align: center ;
+    background-color: var(--text-color-light);
+    border-radius: 5px;
+    padding: .5rem;
+    font-size: .8rem;
+}
+
+.account__table-reference:hover {
+    background-color: var(--first-color);
+}
+
+.account__table-button {
+    text-align: right;
+}
+
+.account__order-content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.order__detail {
+    color: var(--text-color-light);
+}
+
+.account__table-AllContent {
+    text-align: center;
+}
+
+.account__table-buttonShow {
+    color: var(--text-color-light);
+}
+
+.account__table-buttonShow:hover {
+    color: var(--text-color);
+}
+
+.account__order-recapPrice {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 2rem;
 }
 
 
@@ -1659,6 +1751,7 @@ height: 6rem;
 .cart__content-title {
     font-size: 2rem;
     color: var(--text-color);
+    text-align: center;
 }
 
 .cart__content-title:hover {
@@ -1999,6 +2092,33 @@ height: 6rem;
 .order__recap-buttonClick:hover {
     background-color: var(--first-color);
     color: var(--white-color);
+}
+
+
+/* CONFIRMATION DE COMMANDE * ORDER VALIDATE PAGE */
+
+
+.validation__container {
+    width: 100%;
+    height: 100%;
+    margin: 5rem auto;
+}
+
+.validation__content {
+    display: flex;
+    flex-direction: column;
+    margin: 5rem 0 0 10rem;
+}
+
+.validation__title {
+    color: var(--text-color);
+    font-size: var(--h2-font-size);
+    margin-bottom: 2rem;
+}
+
+.validation__subtitle {
+    color: var(--text-color-light);
+    font-size: var(--normal-font-size);
 }
 
 

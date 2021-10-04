@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes commandes • La Garde Robe{% endblock %}
+
+{% block hero %}{% endblock %}
+
+{% block content %}
+
+    <section class="account section">
+
+        <h1 class="section__title">Mes commandes</h1>
+
+        <div class="account__container grid">
+
+            <div class="account__data">
+                <div class="account__data-info">
+                    <div class="account__data-title">
+                        <h2 class="account__data-titleName">Ravi de vous revoir {{ app.user.firstname }} !</h2>
+                        <h4 class="account__data-titleSubtitle"><i>C'est dans cet espace que vous allez pouvoir gérer toute vos commandes.</i></h4>
+                    </div>
+                </div>
+
+                <div class="account__data-button">
+                    <div class="account__data-buttonBack">
+                        <a href="{{ path('account') }}" class="account__data-buttonBackClick">Retour</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="account__orders">
+
+                <div class="account__orders-content">
+
+                    {% if orders|length == 0 %}
+
+                        <div class="account__orders-empty">
+                            <div class="account__orders-emptyMessage">
+                                <h1 class="account__orders-message">Pas de bras, pas de chocolat !</h1>
+                                <h1 class="account__orders-message">Pas de commande, pas de style !</h1>
+                                <span class="account__orders-subtitle"><i>Pour remédier à ça, direction <a href="{{ path('products') }}" class="account__orders-button">les produits <i class="uil uil-plus"></i></a> pour effectuer votre premier achat.</i></span>
+                            </div>
+                        </div>
+
+                    {% else %}
+                        <div class="account__orders-contentTable">
+
+                            <table class="account__order-table">
+
+                                <thead class="account__table-AllTitle">
+                                <tr>
+                                    <th scope="col" class="account__table-title">Référence</th>
+                                    <th scope="col" class="account__table-title">Passée le</th>
+                                    <th scope="col" class="account__table-title">Produit(s)</th>
+                                    <th scope="col" class="account__table-title">Total</th>
+                                    <th scope="col" class="account__table-title"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% for order in orders %}
+
+                                    <tr class="account__table-AllContent">
+                                        <td class="account__table-reference"><i>{{ order.reference }}</i></td>
+                                        <td class="account__table-date">{{ order.createdAt|date('d/m/Y') }}</td>
+                                        <td class="account__table-details">{{ order.orderDetails|length }}</td>
+                                        <td class="account__table-price">{{ ((order.carrierPrice + order.getTotal) / 100)|number_format(2, '€', '.') }}</td>
+                                        <td class="account__table-button"><a href="{{ path('account_order_show', { 'reference' : order.reference }) }}" class="account__table-buttonShow"><i class="uil uil-search"></i> détail</a></td>
+                                    </tr>
+
+                                {% endfor %}
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma commande • La Garde Robe{% endblock %}
+
+{% block hero %}{% endblock %}
+
+{% block content %}
+
+    <section class="account section">
+
+        <h1 class="section__title">Ma commande</h1>
+
+        <div class="account__container grid">
+
+            <div class="account__data">
+                <div class="account__data-info">
+                    <div class="account__data-title">
+                        <h2 class="account__data-titleName">{{ app.user.firstname }},</h2>
+                        <h4 class="account__data-titleSubtitle"><i>C'est dans cet espace que vous allez pouvoir gérer votre commande n°{{ order.reference }}</i></h4>
+                    </div>
+                </div>
+
+                <div class="account__data-button">
+                    <div class="account__data-buttonBack">
+                        <a href="{{ path('account_order') }}" class="account__data-buttonBackClick">Retour</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="account__orders">
+
+                <div class="account__order-content">
+                    <span class="order__details">Commande passée le : <span class="order__detail"><i>{{ order.createdAt|date('d/m/Y') }}</i></span></span>
+                    <span class="order__details">Référence de ma commande : <span class="order__detail"><i>{{ order.reference }}</i></span></span>
+                    <span class="order__details">Transporteur choisi : <span class="order__detail"><i>{{ order.carriername }}</i></span></span>
+                </div>
+
+
+                <table class="account__order-table">
+
+                    <thead class="account__table-AllTitle">
+                    <tr>
+                        <th scope="col" class="account__table-title">Produit(s)</th>
+                        <th scope="col" class="account__table-title">Quantité</th>
+                        <th scope="col" class="account__table-title">Prix unitaire</th>
+                        <th scope="col" class="account__table-title">Total</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for product in order.orderDetails %}
+
+                        <tr class="account__table-AllContent">
+                            <td class="account__table-product"><i>{{ product.product }}</i></td>
+                            <td class="account__table-quantity">{{ product.quantity }}</td>
+                            <td class="account__table-singlePrice">{{ (product.price / 100)|number_format(2, '€', '.') }}</td>
+                            <td class="account__table-total">{{ (product.total / 100)|number_format(2, '€', '.') }}</td>
+                        </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+                <div class="account__order-recapPrice">
+                    <span class="order__details">Sous-total : <span class="order__detail"><i>{{ (order.getTotal / 100)|number_format(2, '€', '.') }}</i></span></span>
+                    <span class="order__details">Livraison : <span class="order__detail"><i>{{ (order.carrierprice / 100)|number_format(2, '€', '.') }}</i></span></span>
+                    <span class="order__details">Total : <span class="order__detail"><i>{{ ((order.carrierPrice + order.getTotal) / 100)|number_format(2, '€', '.') }}</i></span></span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+{% endblock %}

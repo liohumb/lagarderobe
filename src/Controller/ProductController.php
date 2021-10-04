@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Class\Cart;
 use App\Class\Filter;
 use App\Class\FilterBaby;
 use App\Class\FilterMen;
