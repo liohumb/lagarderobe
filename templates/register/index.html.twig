@@ -11,15 +11,27 @@
         <h1 class="section__title">Inscription</h1>
         <h3 class="section__subtitle"><i>Ravi de faire votre connaissance, <br>merci de saisir les informations demandées afin de vous inscrire.</i></h3>
 
-        {% if notification %}
-            <h3 class="section__subtitle"><i>{{ notification }}</i></h3>
-        {% endif %}
-
         <div class="subscribe__container grid">
 
             <div class="subscribe__form subscribe__button-effect">
 
-                {{ form(form) }}
+                {{ form_start(form) }}
+                    <div class="subscribe__form-firstname">
+                        {{ form_row(form.firstname) }}
+                    </div>
+                    <div class="subscribe__form-lastname">
+                        {{ form_row(form.lastname) }}
+                    </div>
+                    <div class="subscribe__form-email">
+                        {{ form_row(form.email) }}
+                    </div>
+                    <div class="subscribe__form-password">
+                        {{ form_row(form.password) }}
+                    </div>
+                    <div class="subscribe__form-button">
+                        <button type="submit" class="subscribe__form-buttonClick">S'inscrire</button>
+                    </div>
+                {{ form_end(form) }}
 
             </div>
 

@@ -19,7 +19,7 @@ class RegisterType extends AbstractType
     {
         $builder
             ->add('firstname', TextType::class, [
-                'label' => ' ',
+                'label' => false,
                 'constraints' => new Length([
                     'min' => 2,
                     'max' => 30
@@ -29,7 +29,7 @@ class RegisterType extends AbstractType
                 ]
             ])
             ->add('lastname', TextType::class, [
-                'label' => ' ',
+                'label' => false,
                 'constraints' => new Length([
                     'min' => 2,
                     'max' => 30
@@ -39,7 +39,7 @@ class RegisterType extends AbstractType
                 ]
             ])
             ->add('email', EmailType::class, [
-                'label' => ' ',
+                'label' => false,
                 'constraints' => new Length([
                     'min' => 2,
                     'max' => 60
@@ -51,7 +51,7 @@ class RegisterType extends AbstractType
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'invalid_message' => 'Le mot de passe et la confirmation doivent être identique',
-                'label' => ' ',
+                'label' => false,
                 'required' => true,
                 'first_options' => [
                     'label' => ' ',
@@ -60,14 +60,11 @@ class RegisterType extends AbstractType
                     ]
                 ],
                 'second_options' => [
-                    'label' => ' ',
+                    'label' => false,
                     'attr' => [
                         'placeholder' => 'Merci de confirmez votre mot de passe'
                     ]
                 ]
-            ])
-            ->add('submit', SubmitType::class, [
-                'label' => "S'inscrire"
             ])
         ;
     }

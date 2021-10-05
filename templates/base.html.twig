@@ -14,7 +14,7 @@
 
         <header class="header nav__menu-page" id="header">
             <nav class="nav container">
-                <a href="{{ path('home') }}" class="nav__logo"><img src="{{ asset('assets/img/logo.png') }}" alt="La Garde Robe" class="nav__logo-img"></a>
+                <a href="{{ path('home') }}" class="nav__logo"><img src="{{ asset('assets/img/logo1.png') }}" alt="La Garde Robe" class="nav__logo-img"></a>
 
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
@@ -22,7 +22,7 @@
                             <a href="{{ path('products') }}" class="nav__link">Les produits</a>
                         </li>
                         <li>
-                            <a href="#" class="nav__link">Nous contacter</a>
+                            <a href="{{ path('contact') }}" class="nav__link">Nous contacter</a>
                         </li>
                         <li>
                             {% if app.user %}

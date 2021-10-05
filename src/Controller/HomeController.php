@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Class\Cart;
+use App\Class\Mail;
 use App\Entity\Hero;
 use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
     /**
      * @param EntityManagerInterface $entityManager

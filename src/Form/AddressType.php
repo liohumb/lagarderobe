@@ -72,9 +72,6 @@ class AddressType extends AbstractType
                     'placeholder' => 'Téléphone'
                 ]
             ])
-            ->add('submit', SubmitType::class, [
-                'label' => 'Valider'
-            ])
         ;
     }
 

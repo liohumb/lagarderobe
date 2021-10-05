@@ -25,20 +25,27 @@
 
             <form method="post">
 
-                <label for="inputEmail"> </label>
-                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" placeholder="Votre adresse email" required autofocus>
-                <label for="inputPassword"> </label>
-                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" placeholder="Votre mot de passe" required>
-
-                <div class="connexion__button">
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                    <button type="submit" class="connexion__button-connexion">Connexion</button>
-                    <a href="{{ path('register') }}" class="connexion__button-subscribe">Inscription</a>
+                <div class="connexion__form-email">
+                    <label for="inputEmail"> </label>
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" placeholder="Votre adresse email" required autofocus>
+                </div>
+                <div class="connexion__form-password">
+                    <label for="inputPassword"> </label>
+                    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" placeholder="Votre mot de passe" required>
                 </div>
 
-            </form>
-            <span class="section__subtitle">Ou vous pouvez <a href="{{ path('reset_password') }}" class="connexion__reset"><b>réinitialiser</b></a> votre mot de passe si vous l'avez oublié.</span>
+        </div>
 
+
+        <div class="connexion__button">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <button type="submit" class="connexion__button-connexion">Connexion</button>
+            <a href="{{ path('register') }}" class="connexion__button-subscribe">Inscription</a>
+        </div>
+
+        </form>
+        <div class="connexion__subtitle">
+            <span class="section__subtitle">Ou vous pouvez <a href="{{ path('reset_password') }}" class="connexion__reset"><b>réinitialiser</b></a> votre mot de passe si vous l'avez oublié.</span>
         </div>
 
     </section>
