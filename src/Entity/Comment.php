@@ -125,6 +125,11 @@ class Comment
         return $this;
     }
 
+    public function getProductName()
+    {
+        return $this->product->getName();
+    }
+
     public function getParent(): ?self
     {
         return $this->parent;

@@ -51,6 +51,84 @@
 
     </section>
 
+    <section class="comment section">
+
+        <div class="comment__title">
+            <h1>Qu'est ce que vous en dites ?</h1>
+        </div>
+
+        <div class="comment__container grid">
+
+            <div class="comment__empty">
+
+            </div>
+
+            <div class="comment__show">
+                    {% for comment in product.comments %}
+
+                        {% if comment.parent == null %}
+
+                            <div class="comment__publish">
+                                <div class="comment__content">
+                                    <div class="comment__content-content">
+                                        <p>{{ comment.content }}</p>
+                                    </div>
+                                    <div class="comment__content-name">
+                                        <h4><i class="uil uil-corner-down-right"></i> {{ comment.name }} • <small><a href="#comment__new" data-reply data-id="{{ comment.id }}" class="comment__button-reply"><i class="uil uil-corner-up-left-alt"></i> répondre</a></small></h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% for reply in comment.replies %}
+
+                                <div class="comment__publish-reply">
+                                    <div class="comment__content-reply">
+                                        <div class="comment__content-contentReply">
+                                            <p>{{ reply.content }}</p>
+                                        </div>
+                                        <div class="comment__content-nameReply">
+                                            <h4>{{ reply.name }} <i class="uil uil-corner-down-left"></i></h4>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            {% endfor %}
+
+                        {% endif %}
+
+                    {% endfor %}
+            </div>
+
+            <div class="comment__new" id="comment__new">
+                <h3>Ajouter un commentaire</h3>
+
+                <div class="comment__form">
+
+                    {{ form_start(formComment) }}
+                        <div class="comment__form-name">
+                            {{ form_row((formComment.name)) }}
+                        </div>
+                        <div class="comment__form-email">
+                            {{ form_row((formComment.email)) }}
+                        </div>
+                        <div class="comment__form-content">
+                            {{ form_row((formComment.content)) }}
+                        </div>
+                        <div class="comment__form-parent">
+                            {{ form_row(formComment.parentid) }}
+                        </div>
+                        <div class="comment__form-button">
+                            <button class="comment__form-buttonClick button">Partager</button>
+                        </div>
+                    {{ form_end(formComment) }}
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
     <section class="feature section">
 
         <div class="feature__title">

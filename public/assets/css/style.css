@@ -1468,6 +1468,7 @@ height: 6rem;
 
 .product__detail {
     display: flex;
+    flex-direction: column;
     width: 100%;
 }
 
@@ -1593,6 +1594,72 @@ height: 6rem;
 .product__detail-descriptionContent {
     text-align: center;
     margin: 1rem 0 0 0;
+}
+
+
+/* COMMENTAIRE * PRODUCT SHOW PAGE */
+
+.comment__title {
+    margin: 0 0 4rem 0;
+    text-align: center;
+}
+
+.comment__title h1 {
+    font-size: 3rem;
+}
+
+.comment__container {
+    max-width: 50rem;
+    margin-left: var(--mb-1);
+    margin-right: var(--mb-1);
+}
+
+.comment__show h3,
+.comment__new h3 {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.comment__content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.comment__content-content {
+    color: var(--text-color-light);
+}
+
+.comment__new {
+    width: 100%;
+    margin-top: 4rem;
+}
+
+.comment__button-reply {
+    color: var(--first-color);
+}
+
+.comment__form-button {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.comment__form-buttonClick:hover {
+    background: var(--first-color);
+    color: var(--white-color);
+}
+
+.comment__content-reply {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+}
+
+.comment__content-contentReply {
+    color: var(--text-color-light);
 }
 
 
@@ -2269,6 +2336,11 @@ height: 6rem;
         margin: 6rem 0 4rem;
     }
 
+    .comment__title h1 {
+        font-size: 2rem;
+        margin-top: 6rem;
+    }
+
     .footer__content {
         grid-template-columns: 1fr;
         row-gap: 2rem;
@@ -2471,6 +2543,15 @@ height: 6rem;
     }
     .product__detail-descriptionContent {
         margin: 2rem;
+    }
+
+    .comment__form-name {
+        float: left;
+        width: 33%;
+    }
+    .comment__form-email {
+        float: right;
+        width: 60%;
     }
 
     .favorite__content {
@@ -2856,6 +2937,11 @@ height: 6rem;
         margin-right: auto;
     }
 
+    .comment__container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .footer {
         padding: 6rem 1rem;
         line-height: 3rem;
@@ -2891,7 +2977,7 @@ height: 6rem;
         max-width: 75rem;
     }
 
-    .comment__container {
+    .comment__container-home {
         display: flex;
         flex-direction: row;
         padding: 0 4rem;
@@ -3011,6 +3097,10 @@ height: 6rem;
     }
     .product__detail-descriptionContent {
         margin: 1rem 0 0 10rem;
+    }
+
+    .comment__container {
+        max-width: 50rem;
     }
 
     .favorite__content-title {

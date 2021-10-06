@@ -137,6 +137,20 @@
       <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
       <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/egulias 2/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme 2" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts 2" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts 2" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder 2" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts 2" />
+      <path value="$PROJECT_DIR$/vendor/symfony/sendinblue-mailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/apache-pack 2" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-uuid 2" />
+      <path value="$PROJECT_DIR$/vendor/symfony/stopwatch 2" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy 2" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment 2" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter 2" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations 2" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0">

@@ -7,7 +7,9 @@ use App\Class\Filter;
 use App\Class\FilterBaby;
 use App\Class\FilterMen;
 use App\Class\FilterWomen;
+use App\Entity\Comment;
 use App\Entity\Product;
+use App\Form\CommentType;
 use App\Form\FilterBabyType;
 use App\Form\FilterMenType;
 use App\Form\FilterWomenType;
@@ -112,7 +114,7 @@ class ProductController extends AbstractController
     }
 
     #[Route('/produit/{slug}', name: 'product')]
-    public function show($slug): Response
+    public function show(Request $request, $slug): Response
     {
         $product = $this->entityManager->getRepository(Product::class)->findOneBySlug($slug);
         $products = $this->entityManager->getRepository(Product::class)->findByIsBest(1);
@@ -121,9 +123,34 @@ class ProductController extends AbstractController
             return $this->redirectToRoute('products');
         }
 
+        $comment = new Comment();
+        $formComment = $this->createForm(CommentType::class, $comment);
+
+        $formComment->handleRequest($request);
+
+        if ($formComment->isSubmitted() && $formComment->isValid()) {
+            $comment->setProduct($product);
+
+            $parentId = $formComment->get('parentid')->getData();
+
+            if ($parentId !== null) {
+                $parent = $this->entityManager->getRepository(Comment::class)->find($parentId);
+            }
+
+            $comment->setParent($parent ?? null);
+
+            $this->entityManager->persist($comment);
+            $this->entityManager->flush();
+
+            return $this->redirectToRoute('product', [
+                'slug' => $product->getSlug()
+            ]);
+        }
+
         return $this->render('product/show.html.twig', [
             'product' => $product,
-            'products' => $products
+            'products' => $products,
+            'formComment' => $formComment->createView()
         ]);
     }
 }

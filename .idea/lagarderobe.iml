@@ -140,6 +140,20 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/doctrine-bridge" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/property-info" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-foundation" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/egulias 2/email-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-grapheme 2" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/deprecation-contracts 2" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/event-dispatcher-contracts 2" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/finder 2" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/cache-contracts 2" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/sendinblue-mailer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/apache-pack 2" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-uuid 2" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/stopwatch 2" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/myclabs/deep-copy 2" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/environment 2" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/exporter 2" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/resource-operations 2" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

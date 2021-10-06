@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Carrier;
 use App\Entity\Category;
+use App\Entity\Comment;
 use App\Entity\Gender;
 use App\Entity\Hero;
 use App\Entity\Message;
@@ -38,6 +39,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-users', User::class);
         yield MenuItem::linkToCrud('Messages', 'fas fa-envelope', Message::class);
+        yield MenuItem::linkToCrud('Commentaires', 'fas fa-comments', Comment::class);
         yield MenuItem::linkToCrud('Commandes', 'fas fa-shopping-cart', Order::class);
         yield MenuItem::linkToCrud('Genres', 'fas fa-venus-mars', Gender::class);
         yield MenuItem::linkToCrud('Catégories', 'fas fa-tags', Category::class);
