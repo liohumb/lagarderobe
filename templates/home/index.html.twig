@@ -122,43 +122,17 @@
 
     <section class="comment section">
 
+        <h1 class="section__title">C'est vous, les meilleurs !</h1>
+
         <div class="comment__container-home container grid">
 
+            {% for comment in comments %}
             <div class="comment__card">
-                <span>&ldquo;</span>
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis,
-                    fugiat labore. Veritatis et omnis consequatur.
-                </p>
-                <div class="comment__img">
-                    <img src="{{ asset('assets/img/comment1.jpg') }}" alt="" />
-                </div>
-                <h4>Steve Jobs</h4>
+                <span><i class="uil uil-comment-heart"></i></span>
+                <p>{{ comment.content }}</p>
+                <h4>{{ comment.name }}</h4>
             </div>
-
-            <div class="comment__card">
-                <span>&ldquo;</span>
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis,
-                    fugiat labore. Veritatis et omnis consequatur.
-                </p>
-                <div class="comment__img">
-                    <img src="{{ asset('assets/img/comment2.jpeg') }}" alt="" />
-                </div>
-                <h4>Beyonce</h4>
-            </div>
-
-            <div class="comment__card">
-                <span>&ldquo;</span>
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis,
-                    fugiat labore. Veritatis et omnis consequatur.
-                </p>
-                <div class="comment__img">
-                    <img src="{{ asset('assets/img/comment3.jpg') }}" alt="" />
-                </div>
-                <h4>Chucky</h4>
-            </div>
+            {% endfor %}
 
         </div>
 

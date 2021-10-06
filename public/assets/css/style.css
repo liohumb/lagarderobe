@@ -742,7 +742,7 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 
 .comment__card {
     position: relative;
-    padding: 3rem;
+    padding: 2rem;
     background-color: var(--white-color);
     box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
     transition: all .5s ease-in-out;
@@ -757,9 +757,9 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 
 .comment__card span {
     position: absolute;
-    top: 0;
+    top: 10px;
     left: 50%;
-    font-size: 12rem;
+    font-size: 6rem;
     font-family: sans-serif;
     color: 	hsl(345, 100%, 74%);
     line-height: 1;
@@ -767,7 +767,7 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 }
 
 .comment__card p {
-    margin: 2.5rem 0 2rem 0;
+    margin: 5rem 0 0 0;
 }
 
 .comment__card .comment__img {
@@ -2981,6 +2981,7 @@ height: 6rem;
         display: flex;
         flex-direction: row;
         padding: 0 4rem;
+        margin-top: 7rem;
     }
     .comment__card {
         position: relative;
@@ -2999,16 +3000,16 @@ height: 6rem;
     }
     .comment__card span {
         position: absolute;
-        top: 0;
+        top: 10px;
         left: 50%;
-        font-size: 8rem;
+        font-size: 5rem;
         font-family: sans-serif;
         color: 	hsl(345, 100%, 74%);
         line-height: 1;
         transform: translate(-50%, 0);
     }
     .comment__card p {
-        margin: 2.5rem 0 2rem 0;
+        margin: 4.5rem 0 2rem 0;
         font-size: .8rem;
     }
     .comment__card .comment__img {
@@ -3023,7 +3024,7 @@ height: 6rem;
         object-fit: cover;
     }
     .comment__card h4 {
-        margin-top: .5rem;
+        margin-top: -0.5rem;
     }
 
     .subscribe__container {
@@ -3177,12 +3178,12 @@ height: 6rem;
 @media screen and (min-width: 1450px) {
     .comment__card {
         position: relative;
-        padding: 3rem;
+        padding: 1.5rem;
         background-color: var(--white-color);
         box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
         transition: all .5s ease-in-out;
         text-align: center;
-        border-radius: 0.5rem;
+        border-radius: 0.2rem;
     }
     .comment__card:hover {
         box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
@@ -3190,16 +3191,16 @@ height: 6rem;
     }
     .comment__card span {
         position: absolute;
-        top: 0;
+        top: 15px;
         left: 50%;
-        font-size: 12rem;
+        font-size: 5rem;
         font-family: sans-serif;
         color: 	hsl(345, 100%, 74%);
         line-height: 1;
         transform: translate(-50%, 0);
     }
     .comment__card p {
-        margin: 2.5rem 0 2rem 0;
+        margin: 6rem 0 2rem 0;
     }
     .comment__card .comment__img {
         border-radius: 50%;

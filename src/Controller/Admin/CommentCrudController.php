@@ -34,6 +34,7 @@ class CommentCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+            BooleanField::new('isBest', 'En avant'),
             TextField::new('name', 'Nom'),
             EmailField::new('email'),
             TextareaField::new('content', 'Contenu du commentaire'),

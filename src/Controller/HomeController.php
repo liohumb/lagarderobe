@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Class\Mail;
+use App\Entity\Comment;
 use App\Entity\Hero;
 use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
@@ -28,10 +29,12 @@ class HomeController extends AbstractController
     {
         $products = $this->entityManager->getRepository(Product::class)->findByIsBest(1);
         $heros = $this->entityManager->getRepository(Hero::class)->findAll();
+        $comments = $this->entityManager->getRepository(Comment::class)->findByIsBest(1);
 
         return $this->render('home/index.html.twig', [
             'products' => $products,
-            'heros' => $heros
+            'heros' => $heros,
+            'comments' => $comments
         ]);
     }
 }
