@@ -261,6 +261,23 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
     gap: 1.5rem;
 }
 
+.button {
+    letter-spacing: 0.3em;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 14px;
+    font-weight: 400;
+    max-width: 200px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+    background: none;
+    padding: 1rem;
+    margin: 0;
+}
+
 
 /* BARRE DE NAVIGATION */
 
@@ -793,23 +810,6 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
     align-items: center;
 }
 
-.subscribe__form-buttonClick {
-    letter-spacing: 0.3em;
-    line-height: 1;
-    cursor: pointer;
-    color: var(--text-color);
-    font-size: 14px;
-    font-weight: 400;
-    max-width: 200px;
-    position: relative;
-    text-decoration: none;
-    text-transform: uppercase;
-    width: 100%;
-    background: none;
-    padding: 1rem;
-    margin: 0;
-}
-
 .subscribe__form-buttonClick:hover {
     background: var(--first-color);
     color: var(--white-color);
@@ -835,24 +835,6 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
     justify-content: center;
     text-align: center;
     align-items: center;
-}
-
-.connexion__button-connexion,
-.connexion__button-subscribe {
-    letter-spacing: 0.3em;
-    line-height: 1;
-    cursor: pointer;
-    color: var(--text-color);
-    font-size: 14px;
-    font-weight: 400;
-    max-width: 200px;
-    position: relative;
-    text-decoration: none;
-    text-transform: uppercase;
-    width: 100%;
-    background: none;
-    padding: 1rem;
-    margin: 0;
 }
 
 .connexion__button-connexion:hover,
@@ -1001,23 +983,6 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
     align-items: center;
 }
 
-.account__password-formButtonClick {
-    letter-spacing: 0.3em;
-    line-height: 1;
-    cursor: pointer;
-    color: var(--text-color);
-    font-size: 14px;
-    font-weight: 400;
-    max-width: 200px;
-    position: relative;
-    text-decoration: none;
-    text-transform: uppercase;
-    width: 100%;
-    background: none;
-    padding: 1rem;
-    margin: 0;
-}
-
 .account__password-formButtonClick:hover {
     background: var(--first-color);
     color: var(--white-color);
@@ -1068,23 +1033,6 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.account__address-buttonClick {
-    letter-spacing: 0.3em;
-    line-height: 1;
-    cursor: pointer;
-    color: var(--text-color);
-    font-size: 14px;
-    font-weight: 400;
-    max-width: 200px;
-    position: relative;
-    text-decoration: none;
-    text-transform: uppercase;
-    width: 100%;
-    background: none;
-    padding: 1rem;
-    margin: 0;
 }
 
 .account__address-buttonClick:hover {
@@ -1240,23 +1188,6 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
     justify-content: center;
     text-align: center;
     align-items: center;
-}
-
-.contact__form-buttonClick {
-    letter-spacing: 0.3em;
-    line-height: 1;
-    cursor: pointer;
-    color: var(--text-color);
-    font-size: 14px;
-    font-weight: 400;
-    max-width: 200px;
-    position: relative;
-    text-decoration: none;
-    text-transform: uppercase;
-    width: 100%;
-    background: none;
-    padding: 1rem;
-    margin: 0;
 }
 
 .contact__form-buttonClick:hover {
