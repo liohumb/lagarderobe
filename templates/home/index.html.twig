@@ -98,21 +98,54 @@
 
     <section class="about section">
 
+        <h1 class="about__home-title">On reste en contact ?</h1>
+
         <div class="about__container grid">
 
-            <div class="about__left">
+            <div class="about__home-left">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2527.44200851907!2d3.156409915994799!3d50.69318167772557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c328e3dd23fd3d%3A0x33219387c1bbd279!2s20%20Rue%20du%20Luxembourg%2C%2059100%20Roubaix!5e0!3m2!1sfr!2sfr!4v1631776470634!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
 
-            <div class="about__right">
-                <div class="about__background">
-                    <div class="about__content">
-                        <h2 class="about__title">On reste en contact !</h2>
-                        <span class="about__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+            <div class="about__home-right">
+                <div class="about__right-content">
+                    {% for information in informations %}
+                    <div class="about__top">
+                        <div class="about__top-left">
+                            <div class="about__top-content">
+                                <div class="about__social-name">
+                                    <span class="about__social-nameLink"><i class="uil uil-at"></i>{{ information.nameLink }}</span>
+                                </div>
+                                <div class="about__social">
+                                    <a href="{{ information.btnFacebook }}" target="_blank" class="about__social-icon"><i class="uil uil-facebook"></i></a>
+                                    <a href="{{ information.btnInstagram }}" target="_blank" class="about__social-icon"><i class="uil uil-instagram"></i></a>
+                                    <a href="{{ information.btnTwitter }}" target="_blank" class="about__social-icon"><i class="uil uil-twitter"></i></a>
+                                </div>
+                                <div class="about__phone">
+                                    <a href="" class="about__phone-call"><i class="uil uil-phone"></i> {{ information.phone }}</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about__top-right">
+                            <img src="/uploads/{{ information.firstIllustration }}" alt="La Garde Robe • Social" class="about__img">
+                        </div>
                     </div>
-                    <div class="about__button">
-                        <a href="{{ path('contact') }}" class="about__button-click">Contactez nous</a>
+                    <div class="about__bottom">
+                        <div class="about__bottom-left">
+                            <img src="/uploads/{{ information.secondIllustration }}" alt="La Garde Robe • Opening" class="about__img">
+                        </div>
+                        <div class="about__bottom-right">
+                            <div class="about__bottom-content">
+                                <div class="about__openingHours">
+                                    <span class="about__days">Du {{ information.firstDay }} au {{ information.lastDay }}</span>
+                                    <span class="about__hours">De {{ information.openHour }}h à {{ information.closeHour }}h</span>
+                                </div>
+                                <div class="about__button-contact">
+                                    <a href="{{ information.btnUrl }}" class="about__button-contactClick button">{{ information.btnTitle }}</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
 

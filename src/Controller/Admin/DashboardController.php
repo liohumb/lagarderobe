@@ -7,6 +7,7 @@ use App\Entity\Category;
 use App\Entity\Comment;
 use App\Entity\Gender;
 use App\Entity\Hero;
+use App\Entity\Information;
 use App\Entity\Message;
 use App\Entity\Order;
 use App\Entity\Product;
@@ -44,7 +45,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Genres', 'fas fa-venus-mars', Gender::class);
         yield MenuItem::linkToCrud('Catégories', 'fas fa-tags', Category::class);
         yield MenuItem::linkToCrud('Produits', 'fas fa-tshirt', Product::class);
-        yield MenuItem::linkToCrud('Livreurs ', 'fas fa-truck', Carrier ::class);
-        yield MenuItem::linkToCrud('HomePage ', 'fas fa-palette', Hero ::class);
+        yield MenuItem::linkToCrud('Livreurs', 'fas fa-truck', Carrier ::class);
+        yield MenuItem::linkToCrud('HomePage', 'fas fa-palette', Hero ::class);
+        yield MenuItem::linkToCrud('Information', 'fas fa-edit', Information ::class);
     }
 }

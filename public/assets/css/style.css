@@ -662,81 +662,113 @@ input[type='text']:focus, [type='email']:focus, [type='tel']:focus, [type='passw
 /* MAP & CONTACT * HOME PAGE */
 
 
+.about__home-title {
+    color: var(--first-color);
+    text-align: center;
+    font-size: var(--h1-font-size);
+    margin: 8rem 0 0 0;
+}
+
 .about__container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 38rem;
+    display: flex;
+    justify-content: center;
+    height: 32.5rem;
+    margin: 8rem 0 4rem 0;
     background-color: var(--first-color);
 }
 
-.about__right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+.about__home-left {
+    display: none;
 }
 
-.about__background {
-    background-color: var(--body-color);
-    width: 80%;
-    padding: 3rem;
+.about__right-content {
+    padding: 5.2rem;
 }
 
-.about__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.about__title {
-    font-size: 3rem;
-    text-align: center;
-    color: var(--first-color);
-}
-
-.about__description {
-    text-align: center;
-    color: var(--first-color);
-    width: 70%;
-}
-
-.about__button {
+.about__top,
+.about__bottom {
     display: flex;
     justify-content: center;
-    text-align: center;
+}
+
+.about__top-left,
+.about__bottom-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 0 10px -5px black;
+}
+
+.about__top-right,
+.about__bottom-left {
+    display: none;
+}
+
+.about__top-content,
+.about__bottom-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+}
+
+.about__openingHours {
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
-.about__button-click {
-    letter-spacing: 0.3em;
-    line-height: 1;
-    cursor: pointer;
-    color: var(--first-color);
-    font-size: 14px;
-    font-weight: 400;
-    max-width: 220px;
-    position: relative;
-    text-decoration: none;
+.about__social-nameLink,
+.about__social-icon,
+.about__phone-call,
+.about__days,
+.about__hours,
+.about__button-contactClick {
+    color: var(--white-color);
+}
+
+.about__social-icon {
+    font-size: 3rem;
+    margin: 1rem;
+}
+
+.about__phone-call {
+    font-size: 1.9rem;
+}
+
+.about__days {
+    font-size: 1.5rem;
     text-transform: uppercase;
-    width: 100%;
-    background: none;
+    margin-top: 1.5rem;
+}
+
+.about__hours {
+    font-size: 2.5rem;
+    text-transform: uppercase;
     padding: 1rem;
+}
+
+.about__button-contact {
     margin: 0;
 }
 
-.about__button-click:hover {
-    background: var(--first-color);
-    color: var(--white-color);
+.about__button-contactClick {
+    font-size: 1rem;
+}
+
+.about__button-contactClick:hover {
+    background: var(--white-color);
+    color: var(--first-color);
 }
 
 
 /* COMMENTAIRES * HOME PAGE */
 
 
-.comment__container {
+.comment__container-home {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     padding: 2rem 6rem;
 }
 
@@ -2443,6 +2475,34 @@ height: 6rem;
         margin-top: 6rem;
     }
 
+    .about__container {
+        height: 27rem;
+    }
+    .about__home-left {
+        display: flex;
+        float: left;
+        width: 50%;
+    }
+    .about__home-right {
+        float: right;
+        width: 50%;
+    }
+    .about__social-icon {
+        font-size: 1.4rem;
+    }
+    .about__phone-call {
+        font-size: 1.1rem;
+    }
+    .about__days {
+        font-size: 1rem;
+    }
+    .about__hours {
+        font-size: 1.5rem;
+    }
+    .about__button-contactClick {
+        font-size: .6rem;
+    }
+
     .subscribe__form-firstname {
         float: left;
         width: 45%;
@@ -2697,6 +2757,26 @@ height: 6rem;
 @media screen and (min-width: 968px) {
     .container{
         max-width: 56rem;
+    }
+
+    .about__container {
+        height: 34.5rem;
+    }
+    .about__social-icon {
+        font-size: 3rem;
+    }
+    .about__phone-call {
+        font-size: 1.9rem;
+    }
+    .about__days {
+        font-size: 1.5rem;
+    }
+    .about__hours {
+        font-size: 2.2rem;
+        padding: 2rem;
+    }
+    .about__button-contactClick {
+        font-size: 1rem;
     }
 
     .product__container-scroll {
@@ -2977,6 +3057,39 @@ height: 6rem;
         max-width: 75rem;
     }
 
+    .about__container {
+        height: 35rem;
+    }
+    .about__top-right,
+    .about__bottom-left {
+        display: flex;
+    }
+    .about__top-content,
+    .about__bottom-content {
+        margin: 0;
+    }
+    .about__social-icon {
+        font-size: 2rem;
+    }
+    .about__phone-call {
+        font-size: 1.4rem;
+    }
+    .about__img {
+        width: 198px;
+        box-shadow: 0 0 10px -5px black;
+    }
+    .about__days {
+        font-size: .9rem;
+        margin-top: .5rem;
+    }
+    .about__hours {
+        font-size: 1.8rem;
+        padding: 1rem;
+    }
+    .about__button-contactClick {
+        font-size: .7rem;
+    }
+
     .comment__container-home {
         display: flex;
         flex-direction: row;
@@ -3230,6 +3343,38 @@ height: 6rem;
     .feature__container {
         grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
         gap: 0 8rem;
+    }
+
+    .about__container {
+        height: 48rem;
+    }
+    .about__openingHours {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .about__social-icon {
+        font-size: 4rem;
+    }
+    .about__phone-call {
+        font-size: 2rem;
+    }
+    .about__img {
+        width: 296px;
+    }
+    .about__days {
+        font-size: 1.6rem;
+        margin-top: 2rem;
+    }
+    .about__hours {
+        font-size: 2.6rem;
+        padding: 1.8rem;
+    }
+    .about__button-contact {
+        margin-top: 1rem;
+    }
+    .about__button-contactClick {
+        font-size: 1rem;
     }
 
     .product__container-scroll {
