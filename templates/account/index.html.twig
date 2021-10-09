@@ -20,10 +20,11 @@
                     </div>
                 </div>
 
-                <div class="account__data-button">
-                    <div class="account__data-buttonBack">
-                        <a href="{{ path('products') }}" class="account__data-buttonBackClick">Retour</a>
-                    </div>
+                <div class="button">
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a href="{{ path('admin') }}" class="account__button-admin button__simple">Administration</a>
+                        {% endif %}
+                        <a href="{{ path('products') }}" class="account__button button__simple">Retour</a>
                 </div>
             </div>
 

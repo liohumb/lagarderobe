@@ -103,8 +103,8 @@
                             </div>
                         </div>
 
-                        <div class="order__recap-button">
-                            <a class="order__recap-buttonClick" id="checkout-button">Payer <i class="uil uil-credit-card"></i></a>
+                        <div class="button">
+                            <a class="order__recap-button button__simple" id="checkout-button">Payer <i class="uil uil-credit-card"></i></a>
                         </div>
                     </div>
                 </div>
@@ -118,8 +118,8 @@
 {% block script %}
 
     <script type="text/javascript">
-        var stripe = Stripe('pk_test_51JgBu2BqsjOO6VddtGEjoQ69bkTKb4w1wF44J8tLShTYcX3p758s2c0G09D86jIt4twFrHsTQUlxvgnUOH2K1gGj00Roe3Fzri');
-        var checkoutButton = document.getElementById("checkout-button");
+        const stripe = Stripe('pk_test_51JgBu2BqsjOO6VddtGEjoQ69bkTKb4w1wF44J8tLShTYcX3p758s2c0G09D86jIt4twFrHsTQUlxvgnUOH2K1gGj00Roe3Fzri');
+        const checkoutButton = document.getElementById("checkout-button");
 
         checkoutButton.addEventListener("click", function () {
             fetch("/commande/create-session/{{ reference }}", {

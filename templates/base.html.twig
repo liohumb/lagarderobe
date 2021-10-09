@@ -6,6 +6,7 @@
         <meta name="description" content="La boutique de vetements pour femmes, hommes & bébé !">
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        {% block javascript %}{% endblock %}
         <title>{% block title %}La Garde Robe • La boutique 100% made in France{% endblock %}</title>
     </head>
 
@@ -101,6 +102,8 @@
         </main>
 
         <script src="{{ asset('assets/js/main.js') }}"></script>
+
+    {% block script %}{% endblock %}
 
     </body>
 

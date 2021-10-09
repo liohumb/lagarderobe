@@ -55,11 +55,6 @@ class Comment
      */
     private $replies;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $isBest;
-
     public function __construct()
     {
         $this->replies = new ArrayCollection();
@@ -173,18 +168,6 @@ class Comment
                 $reply->setParent(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getIsBest(): ?bool
-    {
-        return $this->isBest;
-    }
-
-    public function setIsBest(bool $isBest): self
-    {
-        $this->isBest = $isBest;
 
         return $this;
     }

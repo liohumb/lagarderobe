@@ -61,44 +61,43 @@
 
     <section class="feature section">
 
-        <div class="feature__title">
-            <h1>Nos Produits du Moment</h1>
-        </div>
+        <h1 class="feature__section-title section__title">Les nouveautés !</h1>
 
         <div class="feature__container container grid">
 
-            {% for product in products %}
+            <div class="feature__scroll feature__squares">
 
-                <div class="product">
-                    <div class="product__card">
-                        <div class="product__img">
-                            <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}">
-                        </div>
+                {% for product in products %}
 
-                        <div class="product__detail">
-                            <div class="product__detail-center">
-                                <h1>{{ product.name }}</h1>
-                                <h4 class="price">{{ (product.price / 100) | number_format(2, ' € ', '.') }}</h4>
-                                <ul>
-                                    <li><a href="{{ path('product', { 'slug' : product.slug }) }}"><i class="uil uil-search"></i></a></li>
-                                    <li><a href="{{ path('add_to_favorite', { 'id' : product.id }) }}"><i class="uil uil-heart-alt"></i></a></li>
-                                    <li><a href="#"><i class="uil uil-share"></i></a></li>
-                                    <li><a href="{{ path('add_to_cart', { 'id' : product.id }) }}"><i class="uil uil-shopping-cart"></i></a></li>
-                                </ul>
+                    <div class="feature">
+                        <div class="feature__card">
+                            <div class="feature__img">
+                                <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}">
+                            </div>
+
+                            <div class="feature__detail">
+                                <div class="feature__detail-center">
+                                    <h1>{{ product.name }}</h1>
+                                    <h4 class="price">{{ (product.price / 100) | number_format(2, ' € ', '.') }}</h4>
+                                    <ul>
+                                        <li><a href="{{ path('product', { 'slug' : product.slug }) }}" class="feature__icon-show"><i class="uil uil-search"></i></a></li>
+                                        <li><a href="{{ path('add_to_favorite', { 'id' : product.id }) }}" class="feature__icon-heart"><i class="uil uil-heart-alt"></i></a></li>
+                                        <li><a href="{{ path('add_to_cart', { 'id' : product.id }) }}" class="feature__icon-add"><i class="uil uil-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-            {% endfor %}
+                {% endfor %}
+
+            </div>
 
         </div>
 
     </section>
 
     <section class="about section">
-
-        <h1 class="about__home-title">On reste en contact ?</h1>
 
         <div class="about__container grid">
 
@@ -139,8 +138,8 @@
                                     <span class="about__days">Du {{ information.firstDay }} au {{ information.lastDay }}</span>
                                     <span class="about__hours">De {{ information.openHour }}h à {{ information.closeHour }}h</span>
                                 </div>
-                                <div class="about__button-contact">
-                                    <a href="{{ information.btnUrl }}" class="about__button-contactClick button">{{ information.btnTitle }}</a>
+                                <div class="button">
+                                    <a href="{{ information.btnUrl }}" class="about__button button__simple">{{ information.btnTitle }}</a>
                                 </div>
                             </div>
                         </div>
@@ -148,24 +147,6 @@
                     {% endfor %}
                 </div>
             </div>
-
-        </div>
-
-    </section>
-
-    <section class="comment section">
-
-        <h1 class="section__title">C'est vous, les meilleurs !</h1>
-
-        <div class="comment__container-home container grid">
-
-            {% for comment in comments %}
-            <div class="comment__card">
-                <span><i class="uil uil-comment-heart"></i></span>
-                <p>{{ comment.content }}</p>
-                <h4>{{ comment.name }}</h4>
-            </div>
-            {% endfor %}
 
         </div>
 

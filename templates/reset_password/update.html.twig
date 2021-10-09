@@ -14,17 +14,16 @@
             {% for message in app.flashes('notice') %}
                 <h3 class="section__subtitle">{{ message }}</h3>
             {% endfor %}
-            <form method="post">
 
-                <label for="inputEmail"> </label>
-                <input type="email" name="email" id="inputEmail" class="form-control" autocomplete="email" placeholder="Votre adresse email" required autofocus>
-
-                <div class="connexion__button">
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                    <button type="submit" class="connexion__button-connexion">Réinitialiser</button>
+            {{ form_start(form) }}
+                <div class="account__password-resetPassword">
+                    {{ form_row(form.new_password) }}
                 </div>
+                <div class="account__password-resetButton">
+                    <button class="account__password-resetButtonClick button">Changer</button>
+                </div>
+            {{ form_end(form) }}
 
-            </form>
             <span class="section__subtitle">Ou vous pouvez vous <a href="{{ path('app_login') }}" class="connexion__reset"><b>connecter</b></a> si vous vous souvenez de votre mot de passe.</span>
 
         </div>

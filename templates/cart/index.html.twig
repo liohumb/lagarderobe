@@ -73,10 +73,10 @@
                     </div>
                 </div>
 
-                <div class="cart__button">
-                    <a href="{{ path('order') }}" class="cart__button-click cart__button-validation">Valider</a>
-                    <a href="{{ path('remove_my_cart') }}" class="cart__button-click cart__button-delete">Supprimer</a>
-                    <a href="{{ path('products') }}" class="cart__button-click cart__button-back">Retour</a>
+                <div class="button">
+                    <a href="{{ path('order') }}" class="cart__button-validate button__simple">Valider</a>
+                    <a href="{{ path('remove_my_cart') }}" class="cart__button-delete button__simple">Supprimer</a>
+                    <a href="{{ path('products') }}" class="cart__button button__simple">Retour</a>
                 </div>
 
             </div>
@@ -89,12 +89,12 @@
 
             <div class="cart__container container grid">
 
-                <div class="cart__content">
+                <div class="cart__content-empty">
                     <h1 class="cart__content-title">Votre panier est vide</h1>
                 </div>
 
-                <div class="cart__button">
-                    <a href="{{ path('products') }}" class="cart__button-click cart__button-back">Retour</a>
+                <div class="button">
+                    <a href="{{ path('products') }}" class="cart__button button__simple">Retour</a>
                 </div>
 
             </div>

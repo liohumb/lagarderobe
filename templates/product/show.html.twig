@@ -39,8 +39,8 @@
                     <a href="" class="product__detail-quantityPlus"><i class="uil uil-plus"></i></a>
                 </div>
 
-                <div class="product__detail-button">
-                    <a href="{{ path('add_to_cart', { 'id' : product.id }) }}" class="product__detail-buttonAdd">Ajouter au panier</a>
+                <div class="button">
+                    <a href="{{ path('add_to_cart', { 'id' : product.id }) }}" class="product__button button__simple">Ajouter au panier</a>
                 </div>
 
                 <h3 class="product__detail-description">Description de {{ product.name }}</h3>
@@ -117,8 +117,8 @@
                         <div class="comment__form-parent">
                             {{ form_row(formComment.parentid) }}
                         </div>
-                        <div class="comment__form-button">
-                            <button class="comment__form-buttonClick button">Partager</button>
+                        <div class="button">
+                            <button class="comment__button button__simple">Partager</button>
                         </div>
                     {{ form_end(formComment) }}
 
@@ -131,36 +131,37 @@
 
     <section class="feature section">
 
-        <div class="feature__title">
-            <h1>Nos Produits du Moment</h1>
-        </div>
+        <h1 class="section__title">Les nouveautés !</h1>
 
         <div class="feature__container container grid">
 
-            {% for product in products %}
+            <div class="feature__scroll feature__squares">
 
-                <div class="product">
-                    <div class="product__card">
-                        <div class="product__img">
-                            <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}">
-                        </div>
+                {% for product in products %}
 
-                        <div class="product__detail">
-                            <div class="product__detail-center">
-                                <h1>{{ product.name }}</h1>
-                                <h4 class="price">{{ (product.price / 100) | number_format(2, ' € ', '.') }}</h4>
-                                <ul>
-                                    <li><a href="{{ path('product', { 'slug' : product.slug }) }}"><i class="uil uil-search"></i></a></li>
-                                    <li><a href="{{ path('add_to_favorite', { 'id' : product.id }) }}"><i class="uil uil-heart-alt"></i></a></li>
-                                    <li><a href="#"><i class="uil uil-share"></i></a></li>
-                                    <li><a href="{{ path('add_to_cart', { 'id' : product.id }) }}"><i class="uil uil-shopping-cart"></i></a></li>
-                                </ul>
+                    <div class="feature">
+                        <div class="feature__card">
+                            <div class="feature__img">
+                                <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}">
+                            </div>
+
+                            <div class="feature__detail">
+                                <div class="feature__detail-center">
+                                    <h1>{{ product.name }}</h1>
+                                    <h4 class="price">{{ (product.price / 100) | number_format(2, ' € ', '.') }}</h4>
+                                    <ul>
+                                        <li><a href="{{ path('product', { 'slug' : product.slug }) }}" class="feature__icon-show"><i class="uil uil-search"></i></a></li>
+                                        <li><a href="{{ path('add_to_favorite', { 'id' : product.id }) }}" class="feature__icon-heart"><i class="uil uil-heart-alt"></i></a></li>
+                                        <li><a href="{{ path('add_to_cart', { 'id' : product.id }) }}" class="feature__icon-add"><i class="uil uil-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-            {% endfor %}
+                {% endfor %}
+
+            </div>
 
         </div>
 

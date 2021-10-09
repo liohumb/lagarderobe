@@ -20,10 +20,8 @@
                     </div>
                 </div>
 
-                <div class="account__data-button">
-                    <div class="account__data-buttonBack">
-                        <a href="{{ path('account') }}" class="account__data-buttonBackClick">Retour</a>
-                    </div>
+                <div class="button">
+                        <a href="{{ path('account') }}" class="account__button button__simple">Retour</a>
                 </div>
             </div>
 
@@ -34,8 +32,8 @@
                         <h3 class="account__address-titleName">À vous de gérer !</h3>
                     </div>
 
-                    <div class="account__address-button">
-                        <a href="{{ path('account_address_add') }}" class="account__address-buttonAdd">Ajouter <i class="uil uil-plus"></i></a>
+                    <div class="button">
+                        <a href="{{ path('account_address_add') }}" class="account__address-button button__simple">Ajouter <i class="uil uil-plus"></i></a>
                     </div>
                 </div>
 
@@ -47,7 +45,7 @@
                             <div class="account__address-emptyMessage">
                                 <h1 class="account__address-message">Pas de bras, pas de chocolat !</h1>
                                 <h1 class="account__address-message">Pas d'adresses, pas de livraison !</h1>
-                                <span class="account__address-subtitle"><i>Pour remédier à ça, <a href="{{ path('account_address_add') }}" class="account__address-buttonAdd">ajouter <i class="uil uil-plus"></i></a> une adresse.</i></span>
+                                <span class="section__subtitle"><i>Pour remédier à ça, <a href="{{ path('account_address_add') }}" class="account__button-alt">ajouter <i class="uil uil-plus"></i></a> une adresse.</i></span>
                             </div>
                         </div>
 
@@ -72,9 +70,9 @@
                                         </div>
 
                                         <div class="account__address-cardButton">
-                                            <a href="{{ path('account_address_edit', { 'id' : address.id }) }}" class="account__address-cardButtonEdit">Modifier</a>
+                                            <a href="{{ path('account_address_edit', { 'id' : address.id }) }}" class="account__button-alt">Modifier</a>
                                             |
-                                            <a href="{{ path('account_address_delete', { 'id' : address.id }) }}" class="account__address-cardButtonDelete">Supprimer</a>
+                                            <a href="{{ path('account_address_delete', { 'id' : address.id }) }}" class="account__button-altDelete">Supprimer</a>
                                         </div>
                                     </div>
 

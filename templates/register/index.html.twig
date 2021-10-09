@@ -13,6 +13,10 @@
 
         <div class="subscribe__container grid">
 
+            {% if notification %}
+                <span class="section__subtitle">{{ notification }}</span>
+            {% endif %}
+
             <div class="subscribe__form">
 
                 {{ form_start(form) }}
@@ -28,8 +32,8 @@
                     <div class="subscribe__form-password">
                         {{ form_row(form.password) }}
                     </div>
-                    <div class="subscribe__form-button">
-                        <button type="submit" class="subscribe__form-buttonClick button">S'inscrire</button>
+                    <div class="button">
+                        <button type="submit" class="subscribe__form-button button__simple">S'inscrire</button>
                     </div>
                 {{ form_end(form) }}
 

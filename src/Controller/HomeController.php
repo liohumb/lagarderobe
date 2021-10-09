@@ -30,13 +30,11 @@ class HomeController extends AbstractController
     {
         $products = $this->entityManager->getRepository(Product::class)->findByIsBest(1);
         $heros = $this->entityManager->getRepository(Hero::class)->findAll();
-        $comments = $this->entityManager->getRepository(Comment::class)->findByIsBest(1);
         $informations = $this->entityManager->getRepository(Information::class)->findAll();
 
         return $this->render('home/index.html.twig', [
             'products' => $products,
             'heros' => $heros,
-            'comments' => $comments,
             'informations' =>$informations
         ]);
     }

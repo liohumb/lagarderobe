@@ -37,6 +37,10 @@ class CommentType extends AbstractType
             ->add('parentid', HiddenType::class, [
                 'mapped' => false
             ])
+            ->add('isBest', HiddenType::class, [
+                'mapped' => false,
+                'required' => false
+            ])
         ;
     }
 

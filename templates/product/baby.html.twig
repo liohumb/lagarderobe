@@ -36,9 +36,9 @@
                                             <h2 class="products__filter-title">Choisissez une catégorie</h2>
                                         </div>
                                     </div>
-                                    <div class="products__filter-button">
-                                        <button type="submit" class="products__button">Filter <i class="uil uil-search"></i></button>
-                                        <a href="{{ path('productsBaby') }}" class="filter__reset-button">Réinitialiser</a>
+                                    <div class="button">
+                                        <button type="submit" class="products__button button__simple">Filter <i class="uil uil-search"></i></button>
+                                        <a href="{{ path('productsBaby') }}" class="products__button-alt button__simple">Réinitialiser</a>
                                     </div>
                                     {{ form_end(form) }}
                                 </div>
@@ -72,7 +72,6 @@
                                     <ul>
                                         <li><a href="{{ path('product', { 'slug' : product.slug }) }}"><i class="uil uil-search"></i></a></li>
                                         <li><a href="{{ path('add_to_favorite', { 'id' : product.id }) }}"><i class="uil uil-heart-alt"></i></a></li>
-                                        <li><a href="#"><i class="uil uil-share"></i></a></li>
                                         <li><a href="{{ path('add_to_cart', { 'id' : product.id }) }}"><i class="uil uil-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>

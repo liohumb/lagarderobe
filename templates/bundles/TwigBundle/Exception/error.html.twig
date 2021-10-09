@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page introuvable • La Garde Robe{% endblock %}
+
+{% block hero %}{% endblock %}
+
+{% block content %}
+
+    <section class="error section">
+
+        <div class="error_container container grid">
+
+            <div class="error__content">
+                <div class="error__typing">
+                    ERROR 404 | Page introuvable... :(
+                </div>
+                <div class="error__button">
+                    <a href="{{ path('home') }}" class="error__button-click">
+                        <img src="{{ asset('assets/img/logo2.png') }}" alt="" class="error__button-img">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+{% endblock %}
