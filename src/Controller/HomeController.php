@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Class\Mail;
-use App\Entity\Comment;
 use App\Entity\Hero;
 use App\Entity\Information;
 use App\Entity\Product;
@@ -12,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends AbstractController
+class HomeController extends AbstractController // créé avec symfony console make:controller
 {
     private EntityManagerInterface $entityManager;
 

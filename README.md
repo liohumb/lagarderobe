@@ -6,11 +6,15 @@ Un projet d'une boutique eCommerce fictive d'achat de vêtement femme, homme & b
 
 Pour installer le projet, rien de plus simple !
 
-Après avoir cloné le projet, avec la commande :
+Après avoir cloné le projet, vous devez récupérer les dépendances avec la commande :
 
 ```bash
 composer install
 ```  
+Créé une base de données, avec la commande :
+```bash
+symfony console doctrine:migrations:migrate
+```
 Ensuite lancer le serveur, avec la commande :
 
 ```bash
