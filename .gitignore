@@ -1,3 +1,6 @@
+/.idea
+/src/Class/Mail.php
+/src/Controller/StripeController.php
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -11,7 +14,3 @@
 ###> symfony/phpunit-bridge ###
 .phpunit.result.cache
 /phpunit.xml
-
-###> ignore for security ###
-/src/Class/Mail.php
-/src/Controller/StripeController.php
