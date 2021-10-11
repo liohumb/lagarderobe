@@ -5,16 +5,16 @@
         <meta charset="UTF-8">
         <meta name="description" content="La boutique de vetements pour femmes, hommes & bébé !">
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"> <!-- asset permet d'aller chercher les assets css -->
         {% block javascript %}{% endblock %}
-        <title>{% block title %}La Garde Robe • La boutique 100% made in France{% endblock %}</title>
+        <title>{% block title %}La Garde Robe • La boutique 100% made in France{% endblock %}</title> <!-- block title va permettre de déporté le titre sur toutes les pages -->
     </head>
 
     <body>
 
         <header class="header nav__menu-page" id="header">
             <nav class="nav container">
-                <a href="{{ path('home') }}" class="nav__logo"><img src="{{ asset('assets/img/logo1.png') }}" alt="La Garde Robe" class="nav__logo-img"></a>
+                <a href="{{ path('home') }}" class="nav__logo"><img src="{{ asset('assets/img/logo1.png') }}" alt="La Garde Robe" class="nav__logo-img"></a> <!-- asset permet d'aller chercher les assets images -->
 
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
@@ -55,7 +55,7 @@
 
         <main class="home" id="home">
 
-            {% if block('hero') is defined %}
+            {% if block('hero') is defined %} <!-- Block qui permet d'avoir un fond à la navbar si ce dernier est défini -->
 
                 <section class="hero">
 
@@ -66,6 +66,7 @@
             {% endif %}
 
             {% block content %}
+                <!-- block content va permettre d'afficher les éléments selon le template -->
             {% endblock %}
 
             <footer class="footer section" id="footer">
@@ -101,7 +102,7 @@
 
         </main>
 
-        <script src="{{ asset('assets/js/main.js') }}"></script>
+        <script src="{{ asset('assets/js/main.js') }}"></script> <!-- asset permet d'aller chercher les assets js -->
 
     {% block script %}{% endblock %}
 

@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="button">
-                        {% if is_granted('ROLE_ADMIN') %}
+                        {% if is_granted('ROLE_ADMIN') %} <!-- Bouton qui s'affiche uniquement lorsqu'un admin se connecte à son compte -->
                             <a href="{{ path('admin') }}" class="account__button-admin button__simple">Administration</a>
                         {% endif %}
                         <a href="{{ path('products') }}" class="account__button button__simple">Retour</a>

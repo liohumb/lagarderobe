@@ -13,19 +13,19 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 
-class RegisterType extends AbstractType
+class RegisterType extends AbstractType // crée avec la commande symfony console make:form
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options) // fonction qui permet de construire des formulaires
     {
-        $builder
-            ->add('firstname', TextType::class, [
-                'label' => false,
-                'constraints' => new Length([
+        $builder // Builder qui permet de générer les inputs du formulaire
+            ->add('firstname', TextType::class, [ // Textype, soit le type de l'input
+                'label' => false, // choix du label, ici aucun
+                'constraints' => new Length([ // nombre de caractères minimum et maximum
                     'min' => 2,
                     'max' => 30
                 ]),
                 'attr' => [
-                    'placeholder' => 'Votre prénom'
+                    'placeholder' => 'Votre prénom' // placeholder, soit le text grissé dans les champs d'écriture
                 ]
             ])
             ->add('lastname', TextType::class, [
@@ -38,7 +38,7 @@ class RegisterType extends AbstractType
                     'placeholder' => 'Votre nom'
                 ]
             ])
-            ->add('email', EmailType::class, [
+            ->add('email', EmailType::class, [ // Emailtype, soit un input de type email avec l'obligation d'entrée une adresse em@il
                 'label' => false,
                 'constraints' => new Length([
                     'min' => 2,
@@ -48,18 +48,18 @@ class RegisterType extends AbstractType
                     'placeholder' => 'Votre adresse email'
                 ]
             ])
-            ->add('password', RepeatedType::class, [
-                'type' => PasswordType::class,
-                'invalid_message' => 'Le mot de passe et la confirmation doivent être identique',
+            ->add('password', RepeatedType::class, [ // RepeatedType va répéter l'input password ce qui va permettre de rajouter une confirmation de mot de passe
+                'type' => PasswordType::class, // Passwordtype, soit un input qui va mettre des point • à la place des caractères
+                'invalid_message' => 'Le mot de passe et la confirmation doivent être identique', // Message en cas d'érreurs de saisi
                 'label' => false,
-                'required' => true,
-                'first_options' => [
-                    'label' => ' ',
+                'required' => true, // required, soit que l'input est obligatoire pour valider le formulaire
+                'first_options' => [ // premier input password
+                    'label' => false,
                     'attr' => [
                         'placeholder' => 'Votre mot de passe'
                     ]
                 ],
-                'second_options' => [
+                'second_options' => [ // second input password
                     'label' => false,
                     'attr' => [
                         'placeholder' => 'Merci de confirmez votre mot de passe'

@@ -23,14 +23,14 @@ class HomeController extends AbstractController // créé avec symfony console m
     }
 
 
-    #[Route('/', name: 'home')]
+    #[Route('/', name: 'home')] // Paramètre de route vers la vue
     public function index(): Response
     {
         $products = $this->entityManager->getRepository(Product::class)->findByIsBest(1);
         $heros = $this->entityManager->getRepository(Hero::class)->findAll();
         $informations = $this->entityManager->getRepository(Information::class)->findAll();
 
-        return $this->render('home/index.html.twig', [
+        return $this->render('home/index.html.twig', [ // variable à twig
             'products' => $products,
             'heros' => $heros,
             'informations' =>$informations

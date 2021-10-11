@@ -12,15 +12,15 @@
         <h3 class="section__subtitle">Il est temps de se connecter !</h3>
 
         {% if error %}
-            <div class="section__subtitle">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            <div class="section__subtitle">{{ error.messageKey|trans(error.messageData, 'security') }}</div> <!-- Message d'erreur s'il y a  -->
         {% endif %}
 
         {% for message in app.flashes('notice') %}
-            <h3 class="section__subtitle">{{ message }}</h3>
+            <h3 class="section__subtitle">{{ message }}</h3> <!-- Message d'information -->
         {% endfor %}
 
         {% if app.user %}
-            <div class="section__subtitle">
+            <div class="section__subtitle"> <!-- Message qui s'affiche uniquement si l'utilisateur est déjà connecté -->
                 Vous êtes connecté en tant que <b>{{ app.user.username }}</b>, vous pouvez cliquez <b><a href="{{ path('app_logout') }}">ici</a></b> pour vous déconnecter.
             </div>
         {% endif %}
@@ -28,7 +28,7 @@
         <div class="connexion__container grid">
 
             <form method="post">
-
+                <!-- Formulaire de connexion -->
                 <div class="connexion__form-email">
                     <label for="inputEmail"> </label>
                     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" placeholder="Votre adresse email" required autofocus>
