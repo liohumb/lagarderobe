@@ -14,3 +14,4 @@
 
 ###> ignore for security ###
 /src/Class/Mail.php
+/src/Controller/StripeController.php
