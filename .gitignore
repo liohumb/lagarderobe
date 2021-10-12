@@ -1,6 +1,4 @@
 /.idea
-/src/Class/Mail.php
-/src/Controller/StripeController.php
 
 ###> symfony/framework-bundle ###
 /.env.local
